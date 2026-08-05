@@ -106,6 +106,6 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
   # Images (chemins relatifs à assets/)
   # ---------------------------------------------------------------------------
   [params.images]
-    couple = 'images/IMG_20260328_110411_0001.JPG'
-    family = 'images/IMG_20260328_110516_0003.JPG'
+    couple = 'images/couple-mariage-civil.jpg'
+    family = 'images/famille-mariage-civil.jpg'
     programme = ''  # Image du programme — TODO : déposer dans assets/images/
