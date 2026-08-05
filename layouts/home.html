@@ -1,0 +1,87 @@
+{{ define "main" }}
+  {{- $p := site.Params }}
+
+  {{- /* Ouverture : la photo et les prénoms, rien d'autre. */}}
+  <section class="mx-auto max-w-3xl px-6 pt-10 pb-4 sm:pt-16">
+    <p class="eyebrow soften text-center">{{ $p.weekendLong }}</p>
+
+    <h1 class="rise delay-1 mt-8 text-center font-display text-primary">
+      <span class="block text-[3.25rem] leading-[0.95] sm:text-8xl">{{ $p.brideFirstName }}</span>
+      <span class="my-3 block text-3xl italic text-accent sm:my-4 sm:text-4xl">&amp;</span>
+      <span class="block text-[3.25rem] leading-[0.95] sm:text-8xl">{{ $p.groomFirstName }}</span>
+    </h1>
+
+    {{- with $p.images.couple }}
+      <figure class="rise delay-3 mt-12 sm:mt-16">
+        {{ partial "figure.html" (dict
+            "path" .
+            "alt" (printf "%s et %s le jour de leur mariage civil" $p.brideFirstName $p.groomFirstName)
+            "ratio" "4x5"
+            "loading" "eager"
+            "sizes" "(min-width: 768px) 720px, 100vw"
+            "class" "w-full"
+        ) }}
+      </figure>
+    {{- end }}
+  </section>
+
+  {{- /* Introduction. */}}
+  <section class="mx-auto max-w-3xl px-6 pt-16 sm:pt-20">
+    <div class="rise mx-auto max-w-xl text-center">
+      {{- with .Content }}
+        <div class="font-display text-[1.375rem] leading-[1.6] text-primary sm:text-[1.5rem] [&_p]:mt-6 [&_p:first-child]:mt-0 [&_em]:text-accent">
+          {{ . }}
+        </div>
+      {{- end }}
+    </div>
+
+    <div class="rule mt-16" aria-hidden="true">
+      <span class="font-display text-sm italic text-accent">&#10047;</span>
+    </div>
+  </section>
+
+  {{- /* L'essentiel : date et lieu, en un coup d'œil. */}}
+  <section class="mx-auto max-w-3xl px-6 pt-16">
+    <dl class="rise grid gap-10 text-center sm:grid-cols-2 sm:gap-8 sm:text-left">
+      <div>
+        <dt class="eyebrow">Quand</dt>
+        <dd class="mt-3 font-display text-2xl text-primary sm:text-[1.75rem]">
+          <time datetime="{{ $p.weddingDate }}">Samedi {{ $p.weddingDateLong }}</time>
+        </dd>
+        <p class="mt-2 text-sm text-muted">Accueil dès le vendredi 6, brunch le dimanche 8.</p>
+      </div>
+      <div>
+        <dt class="eyebrow">Où</dt>
+        <dd class="mt-3 font-display text-2xl text-primary sm:text-[1.75rem]">
+          {{ $p.venue.shortName }}
+        </dd>
+        <p class="mt-2 text-sm text-muted">{{ $p.venue.name }}</p>
+      </div>
+    </dl>
+  </section>
+
+  {{- /* Points d'entrée vers les autres pages : une liste sobre, pas de cartes. */}}
+  <nav class="mx-auto max-w-3xl px-6 pt-20" aria-label="Découvrir le site">
+    <p class="eyebrow">Tout savoir</p>
+    <ul class="mt-6 border-t border-line/50">
+      {{- range site.Menus.main }}
+        {{- if ne .URL ($.RelPermalink) }}
+          {{- $target := site.GetPage .PageRef }}
+          <li class="border-b border-line/50">
+            <a href="{{ .URL }}" class="group flex items-center justify-between gap-6 py-5">
+              <span class="flex-1">
+                <span class="block font-display text-2xl text-primary">{{ .Name }}</span>
+                {{- with $target }}
+                  {{- with .Params.eyebrow }}
+                    <span class="mt-1 block text-sm text-muted">{{ . }}</span>
+                  {{- end }}
+                {{- end }}
+              </span>
+              <span class="h-px w-6 shrink-0 bg-accent transition-all duration-500 group-hover:w-10" aria-hidden="true"></span>
+            </a>
+          </li>
+        {{- end }}
+      {{- end }}
+    </ul>
+  </nav>
+{{ end }}

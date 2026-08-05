@@ -1,0 +1,35 @@
+{{- /*
+  Pied de page.
+
+  Il porte le lien « page suivante » qui donne au site sa sensation de petit
+  livre que l'on feuillette : on avance dans l'ordre du menu, et la dernière
+  page ramène à l'accueil.
+*/ -}}
+{{- $next := partial "func/next-page.html" . }}
+
+<footer class="mt-24 w-full">
+  {{- with $next }}
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="h-px bg-line/50"></div>
+      <a href="{{ .URL }}"
+         class="group flex items-baseline justify-between gap-4 py-8 transition-colors hover:text-primary">
+        <span class="eyebrow">{{ .Label }}</span>
+        <span class="flex items-baseline gap-3 font-display text-2xl text-primary">
+          {{ .Name }}
+          <span class="inline-block h-px w-6 bg-accent transition-all duration-500 group-hover:w-10" aria-hidden="true"></span>
+        </span>
+      </a>
+    </div>
+  {{- end }}
+
+  <div class="mx-auto max-w-3xl px-6 pb-14 {{ if not $next }}pt-8{{ end }}">
+    <div class="rule mb-6" aria-hidden="true">
+      <span class="font-display text-sm italic">
+        {{ substr site.Params.brideFirstName 0 1 }}&thinsp;&amp;&thinsp;{{ substr site.Params.groomFirstName 0 1 }}
+      </span>
+    </div>
+    <p class="text-center text-[0.6875rem] tracking-[0.14em] text-muted/70 uppercase">
+      {{ site.Params.weddingDateLong }} &middot; {{ site.Params.venue.shortName }}
+    </p>
+  </div>
+</footer>

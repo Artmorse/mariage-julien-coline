@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{- $title := "" }}
+{{- if .IsHome }}
+  {{- $title = printf "%s & %s" site.Params.brideFirstName site.Params.groomFirstName }}
+{{- else }}
+  {{- $title = printf "%s — %s & %s" .Title site.Params.brideFirstName site.Params.groomFirstName }}
+{{- end }}
+<title>{{ $title }}</title>
+
+{{- with or .Description site.Params.description }}
+  <meta name="description" content="{{ . }}">
+{{- end }}
+
+{{- /* Site privé, réservé aux invités : aucune indexation, aucun archivage. */}}
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+
+<meta name="theme-color" content="#2f4034">
+<meta name="format-detection" content="telephone=no">
+
+{{- /* Préchargement des deux polices réellement visibles au premier écran. */}}
+<link rel="preload" href="/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+{{- partial "head/favicon.html" . }}
+
+{{- with (templates.Defer (dict "key" "global")) }}
+  {{- partial "head/css.html" . }}
+{{- end }}

@@ -1,0 +1,14 @@
+{{- /* En-tête commun à toutes les pages intérieures. */ -}}
+<header class="rise pt-14 pb-10 sm:pt-20">
+  {{- with .Params.eyebrow }}
+    <p class="eyebrow soften delay-1">{{ . }}</p>
+  {{- end }}
+  <h1 class="mt-4 font-display text-[2.75rem] leading-[1.05] text-primary sm:text-6xl">
+    {{ .Title }}
+  </h1>
+  {{- with .Params.lead }}
+    <p class="mt-6 max-w-xl text-[1.0625rem] leading-relaxed text-muted rise delay-2">
+      {{ . | markdownify }}
+    </p>
+  {{- end }}
+</header>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <article class="mx-auto max-w-3xl px-6">
+    {{ partial "page-header.html" . }}
+
+    <div class="rise delay-3 prose-page">
+      {{ .Content }}
+    </div>
+
+    {{- /* Bouton vers un contenu externe, piloté par le front matter :
+           linkKey pointe vers une clé de params.links dans hugo.toml. */}}
+    {{- with .Params.linkKey }}
+      {{ partial "link-button.html" (dict
+          "url" (index site.Params.links .)
+          "label" $.Params.linkLabel
+          "note" $.Params.linkNote
+          "pending" $.Params.linkPending
+      ) }}
+    {{- end }}
+  </article>
+{{ end }}

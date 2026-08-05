@@ -1,0 +1,17 @@
+{{- /*
+  Compilation Tailwind. Appelée via templates.Defer pour que hugo_stats.json
+  soit complet : sans cela, les classes des dernières pages rendues seraient
+  purgées de la feuille de style.
+*/ -}}
+{{- with resources.Get "css/main.css" }}
+  {{- $opts := dict "minify" (not hugo.IsDevelopment) }}
+  {{- with . | css.TailwindCSS $opts }}
+    {{- if hugo.IsDevelopment }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- else }}
+      {{- with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}

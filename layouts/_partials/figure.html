@@ -1,0 +1,64 @@
+{{- /*
+  Photographie responsive.
+
+  Les fichiers sources sont des JPEG de 5184 px issus de l'appareil : ils sont
+  redimensionnés à la compilation et servis en AVIF avec repli JPEG, avec un
+  srcset pour ne jamais envoyer plus de pixels que nécessaire sur mobile.
+
+  Paramètres :
+    path     — chemin dans assets/ (obligatoire)
+    alt      — texte alternatif (obligatoire)
+    ratio    — recadrage optionnel, ex. "4x5", "3x2"
+    sizes    — attribut sizes, défaut : pleine largeur du contenu
+    class    — classes appliquées au <img>
+    loading  — "eager" pour l'image du premier écran, sinon "lazy"
+*/ -}}
+{{- $path := .path }}
+{{- $alt := .alt }}
+{{- $ratio := .ratio }}
+{{- $sizes := default "(min-width: 768px) 720px, 100vw" .sizes }}
+{{- $class := default "" .class }}
+{{- $loading := default "lazy" .loading }}
+
+{{- with resources.Get $path }}
+  {{- /* Recadrage éventuel, en privilégiant le centre haut : sur une photo de
+         groupe, les visages sont dans la moitié supérieure. */}}
+  {{- $base := . }}
+  {{- if $ratio }}
+    {{- $w := 1600 }}
+    {{- $parts := split $ratio "x" }}
+    {{- $h := math.Round (mul (div (float $w) (float (index $parts 0))) (float (index $parts 1))) }}
+    {{- $base = $base.Fill (printf "%dx%.0f smart" $w $h) }}
+  {{- else }}
+    {{- $base = $base.Resize "1600x" }}
+  {{- end }}
+
+  {{- $widths := slice 480 720 1080 1600 }}
+  {{- $jpegs := slice }}
+  {{- $avifs := slice }}
+  {{- range $widths }}
+    {{- if le . $base.Width }}
+      {{- $r := $base.Resize (printf "%dx" .) }}
+      {{- $jpegs = $jpegs | append (printf "%s %dw" $r.RelPermalink $r.Width) }}
+      {{- $a := $base.Resize (printf "%dx avif q65" .) }}
+      {{- $avifs = $avifs | append (printf "%s %dw" $a.RelPermalink $a.Width) }}
+    {{- end }}
+  {{- end }}
+
+  {{- $fallback := $base.Resize "1080x jpg q80" }}
+
+  <picture>
+    <source type="image/avif" srcset="{{ delimit $avifs ", " }}" sizes="{{ $sizes }}">
+    <img src="{{ $fallback.RelPermalink }}"
+         srcset="{{ delimit $jpegs ", " }}"
+         sizes="{{ $sizes }}"
+         width="{{ $base.Width }}"
+         height="{{ $base.Height }}"
+         alt="{{ $alt }}"
+         loading="{{ $loading }}"
+         {{ if eq $loading "eager" }}fetchpriority="high"{{ else }}decoding="async"{{ end }}
+         class="{{ $class }}">
+  </picture>
+{{- else }}
+  {{- warnf "figure.html : image introuvable dans assets/ : %q" $path }}
+{{- end }}

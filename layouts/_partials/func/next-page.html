@@ -1,0 +1,24 @@
+{{- /*
+  Renvoie la page suivante dans l'ordre du menu principal, sous forme de dict
+  (Name, URL, Label). La dernière page renvoie vers l'accueil.
+
+  Retourne nil si la page courante n'est pas dans le menu.
+*/ -}}
+{{- $result := "" }}
+{{- $menu := site.Menus.main }}
+{{- $index := -1 }}
+
+{{- range $i, $entry := $menu }}
+  {{- if $.IsMenuCurrent "main" $entry }}
+    {{- $index = $i }}
+  {{- end }}
+{{- end }}
+
+{{- if ge $index 0 }}
+  {{- $isLast := eq $index (sub (len $menu) 1) }}
+  {{- $next := index $menu (cond $isLast 0 (add $index 1)) }}
+  {{- $label := cond $isLast "Revenir au début" "Page suivante" }}
+  {{- $result = dict "Name" $next.Name "URL" $next.URL "Label" $label }}
+{{- end }}
+
+{{- return $result }}
