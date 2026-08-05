@@ -21,9 +21,12 @@
 {{- $loading := default "lazy" .loading }}
 
 {{- with resources.Get $path }}
-  {{- /* Recadrage éventuel, en privilégiant le centre haut : sur une photo de
-         groupe, les visages sont dans la moitié supérieure. */}}
-  {{- $base := . }}
+  {{- /* Les JPEG sortis de l'appareil portent une balise Exif d'orientation :
+         sans AutoOrient en premier, les portraits s'affichent couchés. */}}
+  {{- $base := images.Filter images.AutoOrient . }}
+
+  {{- /* Recadrage éventuel, en privilégiant le centre : le mode « smart »
+         garde la zone la plus signifiante de la photo. */}}
   {{- if $ratio }}
     {{- $w := 1600 }}
     {{- $parts := split $ratio "x" }}
