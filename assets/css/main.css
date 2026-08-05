@@ -1,0 +1,350 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+/* ===========================================================================
+   Polices auto-hébergées — aucune requête vers un service tiers.
+   Fichiers variables (woff2) : une seule requête couvre toutes les graisses.
+   =========================================================================== */
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-latin-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-latin-ext-italic.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ===========================================================================
+   Charte graphique — source unique de vérité.
+
+   Toutes les couleurs du site descendent de ces variables. Pour rebasculer la
+   palette lors de la charte définitive, il suffit de modifier ce bloc :
+   aucune valeur hexadécimale n'est écrite ailleurs dans le projet.
+   =========================================================================== */
+
+/* Palette brute — les seules valeurs hexadécimales du projet. */
+:root {
+  --forest: #2f4034;
+  --moss: #55694f;
+  --sage: #97a68b;
+  --sage-light: #c5cdbb;
+  --cream: #f4f1e8;
+  --cream-deep: #e8e3d5;
+  --white: #fdfcf9;
+}
+
+/* Rôles sémantiques. Tailwind expose chacun à la fois comme utilitaire
+   (bg-primary, text-muted…) et comme variable CSS (var(--color-primary)). */
+@theme {
+  --color-*: initial;
+
+  --color-primary: var(--forest);
+  --color-secondary: var(--moss);
+  --color-accent: var(--sage);
+  --color-surface: var(--cream);
+  --color-surface-deep: var(--cream-deep);
+  --color-background: var(--white);
+  --color-text: var(--forest);
+  --color-muted: var(--moss);
+  --color-line: var(--sage-light);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ===========================================================================
+   Base
+   =========================================================================== */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  /* Cible tactile confortable, utilisation à une main. */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+  }
+}
+
+/* ===========================================================================
+   Composants
+   =========================================================================== */
+
+@layer components {
+  /* Titre de section : capitales espacées, discret. */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* Bouton principal — lien vers un contenu externe. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3rem;
+    padding: 0.875rem 2rem;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn--ghost {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-line);
+  }
+
+  .btn--ghost:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-background);
+  }
+
+  /* Corps de texte des pages rédigées en Markdown. */
+  .prose-page > p {
+    margin-top: 1.375rem;
+    max-width: 34rem;
+    line-height: 1.75;
+  }
+
+  .prose-page > p:first-child {
+    margin-top: 0;
+  }
+
+  .prose-page h2 {
+    margin-top: 3.5rem;
+    font-size: 1.75rem;
+    color: var(--color-primary);
+  }
+
+  .prose-page h3 {
+    margin-top: 2.5rem;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+
+  .prose-page ul {
+    margin-top: 1.375rem;
+    max-width: 34rem;
+  }
+
+  .prose-page ul > li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .prose-page ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85em;
+    width: 0.5rem;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  .prose-page a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-line);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.3s ease;
+  }
+
+  .prose-page a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .prose-page em {
+    font-style: italic;
+  }
+
+  .prose-page strong {
+    font-weight: 500;
+  }
+
+  /* Filet de séparation orné — remplace les cartes et les gros blocs. */
+  .rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--color-line);
+  }
+
+  .rule::before,
+  .rule::after {
+    content: '';
+    height: 1px;
+    width: 2.5rem;
+    background-color: currentColor;
+  }
+}
+
+/* ===========================================================================
+   Animations — apparition progressive, douce, jamais spectaculaire.
+   =========================================================================== */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soften {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  /* Apparition à l'ouverture de la page. Les délais échelonnent les éléments
+     pour donner la sensation de tourner une page de livre. */
+  .rise {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .soften {
+    animation: soften 1.4s ease both;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+  .delay-6 { animation-delay: 0.85s; }
+}
+
+/* Respect strict de la préférence système : aucun mouvement imposé. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001s !important;
+  }
+}

@@ -1,0 +1,111 @@
+baseURL = 'https://julien-coline.lemorse.tech/'
+locale = 'fr-FR'
+defaultContentLanguage = 'fr'
+title = 'Coline & Julien'
+
+enableRobotsTXT = true
+enableInlineShortcodes = true
+
+# Le site est privé : pas de flux, pas de sitemap, pas d'indexation.
+disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = 'assets/css'
+    target = 'css'
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+    disableWatch = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# Navigation. L'ordre défini ici est celui du menu et du lien « page suivante »
+# en bas de chaque page.
+[[menus.main]]
+  name = 'Accueil'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'Programme'
+  pageRef = '/programme'
+  weight = 20
+[[menus.main]]
+  name = 'Lieu'
+  pageRef = '/lieu'
+  weight = 30
+[[menus.main]]
+  name = 'RSVP'
+  pageRef = '/rsvp'
+  weight = 40
+[[menus.main]]
+  name = 'Playlist'
+  pageRef = '/playlist'
+  weight = 50
+[[menus.main]]
+  name = 'Photos'
+  pageRef = '/photos'
+  weight = 60
+
+[minify]
+  disableXML = true
+
+[params]
+  # ---------------------------------------------------------------------------
+  # Les mariés
+  # ---------------------------------------------------------------------------
+  brideFirstName = 'Coline'
+  groomFirstName = 'Julien'
+  brideFullName = 'Coline Metta-Versmessen'
+  groomFullName = 'Julien Méreau'
+  marriedName = 'Coline Méreau-Versmessen'
+
+  # ---------------------------------------------------------------------------
+  # Dates — format ISO pour les balises <time>, format long pour l'affichage
+  # ---------------------------------------------------------------------------
+  civilDate = '2026-03-28'
+  weddingDate = '2027-08-07'
+  weddingDateLong = '7 août 2027'
+  weekendLong = 'Du vendredi 6 au dimanche 8 août 2027'
+
+  # ---------------------------------------------------------------------------
+  # Lieu
+  # ---------------------------------------------------------------------------
+  [params.venue]
+    name = 'Maison Familiale de Berlencourt-Le-Cauroy'
+    shortName = 'Berlencourt-le-Cauroy'
+    street = '161 Rue de Grand Rullecourt'
+    postcode = '62810'
+    city = 'Berlencourt-le-Cauroy'
+    mapsUrl = 'https://maps.app.goo.gl/6Cfe8bpqcX1J4paj7'
+
+  # ---------------------------------------------------------------------------
+  # Liens externes
+  #
+  # Laisser une valeur vide ('') masque simplement le bouton concerné : la page
+  # reste en ligne avec son texte, sans lien mort pour les invités.
+  # Remplacer par l'URL réelle dès qu'elle est disponible.
+  # ---------------------------------------------------------------------------
+  [params.links]
+    rsvp = ''       # Google Forms — TODO : formulaire à créer
+    playlist = ''   # Playlist Spotify collaborative — TODO
+    photos = ''     # Album Google Photos — TODO
+
+  # ---------------------------------------------------------------------------
+  # Images (chemins relatifs à assets/)
+  # ---------------------------------------------------------------------------
+  [params.images]
+    couple = 'images/IMG_20260328_110411_0001.JPG'
+    family = 'images/IMG_20260328_110516_0003.JPG'
+    programme = ''  # Image du programme — TODO : déposer dans assets/images/
