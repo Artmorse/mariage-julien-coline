@@ -26,7 +26,7 @@
           {{- $active := $.IsMenuCurrent "main" . }}
           <li>
             <a href="{{ .URL }}"
-               class="text-[0.8125rem] tracking-[0.08em] transition-colors {{ if $active }}text-primary{{ else }}text-muted hover:text-primary{{ end }}"
+               class="text-[0.8125rem] tracking-[0.08em] transition-colors {{ if $active }}text-accent{{ else }}text-muted hover:text-accent{{ end }}"
                {{ if $active }}aria-current="page"{{ end }}>
               {{ .Name }}
             </a>
@@ -78,7 +78,7 @@
         {{- $active := $.IsMenuCurrent "main" . }}
         <li>
           <a href="{{ .URL }}"
-             class="flex items-baseline gap-4 py-3 font-display text-3xl transition-colors {{ if $active }}text-primary{{ else }}text-muted{{ end }}"
+             class="flex items-baseline gap-4 py-3 font-display text-3xl transition-colors {{ if $active }}text-accent{{ else }}text-muted{{ end }}"
              {{ if $active }}aria-current="page"{{ end }}>
             {{- if $active }}
               <span class="h-px w-5 shrink-0 translate-y-[-0.4rem] bg-accent" aria-hidden="true"></span>

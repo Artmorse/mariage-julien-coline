@@ -23,13 +23,17 @@
     <div class="mt-4">
       {{- range $i, $day := hugo.Data.schedule }}
         <section class="rise mt-16 first:mt-0" style="animation-delay: {{ mul (add $i 2) 0.12 }}s">
+          {{- /* The wedding day itself is set in clay: it is the one heading on
+                 the site that earns full colour rather than a hairline. */}}
           <div class="flex items-baseline gap-4">
-            <h2 class="font-display text-3xl text-primary sm:text-4xl">{{ $day.day }}</h2>
+            <h2 class="font-display text-3xl sm:text-4xl {{ if $day.highlight }}text-accent{{ else }}text-primary{{ end }}">
+              {{ $day.day }}
+            </h2>
             <span class="text-sm text-muted">
               <time datetime="{{ $day.date }}">{{ $day.dateLabel }}</time>
             </span>
             {{- if $day.highlight }}
-              <span class="ml-auto text-[0.625rem] tracking-[0.18em] text-accent uppercase">Le grand jour</span>
+              <span class="ml-auto text-[0.625rem] tracking-[0.18em] text-accent-deep uppercase">Le grand jour</span>
             {{- end }}
           </div>
 
@@ -39,11 +43,11 @@
 
           {{- /* Timeline: a vertical rule with aligned times. Deliberately
                  flat, no cards and no boxes. */}}
-          <ol class="mt-7 border-l border-line/60">
+          <ol class="mt-7 border-l {{ if $day.highlight }}border-accent-soft/60{{ else }}border-line/60{{ end }}">
             {{- range $day.events }}
               <li class="relative pb-9 pl-6 last:pb-0">
                 <span class="absolute top-[0.6rem] -left-[3px] block h-[5px] w-[5px] rounded-full bg-accent" aria-hidden="true"></span>
-                <p class="font-sans text-[0.8125rem] tracking-[0.14em] text-muted">{{ .time }}</p>
+                <p class="font-sans text-[0.8125rem] tracking-[0.14em] text-accent-deep">{{ .time }}</p>
                 <h3 class="mt-1 font-display text-2xl text-primary">{{ .title }}</h3>
                 {{- with .description }}
                   <p class="mt-1.5 max-w-md text-[0.9375rem] leading-relaxed text-muted">{{ . }}</p>

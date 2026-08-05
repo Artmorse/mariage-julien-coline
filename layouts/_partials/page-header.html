@@ -6,6 +6,9 @@
   <h1 class="mt-4 font-display text-[2.75rem] leading-[1.05] text-primary sm:text-6xl">
     {{ .Title }}
   </h1>
+  {{- /* The warm hairline is what gives each page its touch of colour: large
+         type set in clay would overpower the page, this does not. */}}
+  <span class="title-rule rise delay-2" aria-hidden="true"></span>
   {{- with .Params.lead }}
     <p class="mt-6 max-w-xl text-[1.0625rem] leading-relaxed text-muted rise delay-2">
       {{ . | markdownify }}

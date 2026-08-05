@@ -35,8 +35,8 @@
       {{- end }}
     </div>
 
-    <div class="rule mt-16" aria-hidden="true">
-      <span class="font-display text-sm italic text-accent">&#10047;</span>
+    <div class="rule mt-16 text-accent-soft" aria-hidden="true">
+      <span class="font-display text-sm italic text-accent-deep">&#10047;</span>
     </div>
   </section>
 
@@ -70,7 +70,7 @@
           <li class="border-b border-line/50">
             <a href="{{ .URL }}" class="group flex items-center justify-between gap-6 py-5">
               <span class="flex-1">
-                <span class="block font-display text-2xl text-primary">{{ .Name }}</span>
+                <span class="block font-display text-2xl text-primary transition-colors duration-300 group-hover:text-accent">{{ .Name }}</span>
                 {{- with $target }}
                   {{- with .Params.eyebrow }}
                     <span class="mt-1 block text-sm text-muted">{{ . }}</span>

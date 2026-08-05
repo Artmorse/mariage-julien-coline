@@ -80,12 +80,23 @@
    hexadecimal value is written anywhere else in the project.
    =========================================================================== */
 
-/* Raw palette — the only hexadecimal values in the project. */
+/* Raw palette — the only hexadecimal values in the project.
+
+   Two complementary families:
+     — the greens carry the structure, the body text and every hairline;
+     — the warm earths carry the colour: headings, ornaments, small details.
+   Clay and ochre are deliberately deep enough to carry small text: both clear
+   4.5:1 against the cream and the off-white (clay 5.0 / 4.6, ochre 5.2 / 4.7).
+   Apricot is decorative only — at 2.7:1 it must never carry text, only fills
+   and hairlines. */
 :root {
   --forest: #2f4034;
   --moss: #55694f;
   --sage: #97a68b;
   --sage-light: #c5cdbb;
+  --clay: #a85731;
+  --apricot: #d08d5c;
+  --ochre: #836722;
   --cream: #f4f1e8;
   --cream-deep: #e8e3d5;
   --white: #fdfcf9;
@@ -98,7 +109,6 @@
 
   --color-primary: var(--forest);
   --color-secondary: var(--moss);
-  --color-accent: var(--sage);
   --color-surface: var(--cream);
   --color-surface-deep: var(--cream-deep);
   --color-background: var(--white);
@@ -107,6 +117,15 @@
   --color-line: var(--sage-light);
   --color-transparent: transparent;
   --color-current: currentColor;
+
+  /* Warm roles. `accent` is the one used by ornaments and small details; it
+     used to be sage, which is why the site read as a single hue. `accent-soft`
+     is for filled decorative shapes, `accent-deep` for warm text that sits
+     next to body copy. */
+  --color-accent: var(--clay);
+  --color-accent-soft: var(--apricot);
+  --color-accent-deep: var(--ochre);
+  --color-sage: var(--sage);
 
   --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -153,9 +172,10 @@
     border-radius: 2px;
   }
 
+  /* Apricot is light enough that the deep green text stays readable on it. */
   ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-background);
+    background-color: var(--color-accent-soft);
+    color: var(--color-primary);
   }
 }
 
@@ -164,14 +184,37 @@
    =========================================================================== */
 
 @layer components {
-  /* Section heading: spaced capitals, discreet. */
+  /* Section heading: spaced capitals, discreet. Clay rather than moss: at this
+     size the colour reads as a warm detail, not as a shout. */
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
     font-weight: 400;
     letter-spacing: 0.22em;
     text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  /* Muted variant, for the eyebrows used as plain labels inside a page body
+     rather than as a section opener. */
+  .eyebrow--muted {
     color: var(--color-muted);
+  }
+
+  /* Short warm hairline placed under a page title. It is what carries the
+     colour on headings: large type set in clay would overwhelm the page,
+     a 2.5rem rule under it does not. */
+  .title-rule {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-top: 1.5rem;
+    border-radius: 1px;
+    background-image: linear-gradient(
+      to right,
+      var(--color-accent),
+      var(--color-accent-soft)
+    );
   }
 
   /* Primary button — link to external content. */
@@ -220,16 +263,34 @@
     margin-top: 0;
   }
 
+  /* Headings inside Markdown content: a warm hairline to the left rather than
+     coloured type, so long passages stay calm and readable. */
   .prose-page h2 {
+    position: relative;
     margin-top: 3.5rem;
     font-size: 1.75rem;
     color: var(--color-primary);
   }
 
+  .prose-page h2::before {
+    content: '';
+    position: absolute;
+    top: 0.15em;
+    bottom: 0.15em;
+    left: -1.25rem;
+    width: 2px;
+    border-radius: 1px;
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-accent),
+      var(--color-accent-soft)
+    );
+  }
+
   .prose-page h3 {
     margin-top: 2.5rem;
     font-size: 1.25rem;
-    color: var(--color-primary);
+    color: var(--color-accent-deep);
   }
 
   .prose-page ul {
@@ -263,6 +324,7 @@
 
   .prose-page a:hover {
     text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   .prose-page em {
