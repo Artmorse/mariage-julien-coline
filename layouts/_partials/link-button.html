@@ -1,11 +1,11 @@
 {{- /*
-  Bouton vers un contenu externe.
+  Button to external content.
 
-  Si l'URL est vide, le bouton est remplacé par une mention discrète : les
-  invités ne rencontrent jamais de lien mort, et la page reste cohérente en
-  attendant que le lien soit renseigné dans hugo.toml.
+  If the URL is empty, the button is replaced by a discreet note: guests never
+  meet a dead link, and the page stays coherent until the link is filled in in
+  hugo.toml.
 
-  Paramètres : url, label, note (optionnelle), pending (texte d'attente).
+  Parameters: url, label, note (optional), pending (placeholder text).
 */ -}}
 {{- $url := .url }}
 {{- $label := .label }}

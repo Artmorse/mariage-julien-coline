@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{- $p := site.Params }}
 
-  {{- /* Ouverture : la photo et les prénoms, rien d'autre. */}}
+  {{- /* Opening: the photograph and the first names, nothing else. */}}
   <section class="mx-auto max-w-3xl px-6 pt-10 pb-4 sm:pt-16">
     <p class="eyebrow soften text-center">{{ $p.weekendLong }}</p>
 
@@ -40,7 +40,7 @@
     </div>
   </section>
 
-  {{- /* L'essentiel : date et lieu, en un coup d'œil. */}}
+  {{- /* The essentials: date and venue, at a glance. */}}
   <section class="mx-auto max-w-3xl px-6 pt-16">
     <dl class="rise grid gap-10 text-center sm:grid-cols-2 sm:gap-8 sm:text-left">
       <div>
@@ -60,7 +60,7 @@
     </dl>
   </section>
 
-  {{- /* Points d'entrée vers les autres pages : une liste sobre, pas de cartes. */}}
+  {{- /* Entry points to the other pages: a plain list, no cards. */}}
   <nav class="mx-auto max-w-3xl px-6 pt-20" aria-label="Découvrir le site">
     <p class="eyebrow">Tout savoir</p>
     <ul class="mt-6 border-t border-line/50">

@@ -1,14 +1,14 @@
 {{- /*
-  Navigation discrète.
+  Discreet navigation.
 
-  Mobile  : monogramme + bouton « Menu » ouvrant un panneau plein écran.
-  Desktop : les liens sont affichés en ligne, le bouton disparaît.
+  Mobile  : monogram + "Menu" button opening a full-screen panel.
+  Desktop : the links are displayed inline, the button disappears.
 
-  Le panneau utilise l'élément natif <dialog> : pas de dépendance, fermeture au
-  clavier (Échap) et piégeage du focus gérés par le navigateur.
+  The panel uses the native <dialog> element: no dependency, with keyboard
+  dismissal (Esc) and focus trapping handled by the browser.
 */ -}}
 <header class="sticky top-0 z-40 bg-background/85 backdrop-blur-sm">
-  <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm">
+  <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-surface focus:px-4 focus:py-2 focus:text-sm">
     Aller au contenu
   </a>
 
@@ -19,7 +19,7 @@
       {{ substr site.Params.brideFirstName 0 1 }}&thinsp;&amp;&thinsp;{{ substr site.Params.groomFirstName 0 1 }}
     </a>
 
-    {{- /* Liens en clair sur grand écran. */}}
+    {{- /* Plain links on large screens. */}}
     <nav class="hidden sm:block" aria-label="Navigation principale">
       <ul class="flex items-center gap-7">
         {{- range site.Menus.main }}
@@ -35,7 +35,7 @@
       </ul>
     </nav>
 
-    {{- /* Bouton menu, mobile uniquement. */}}
+    {{- /* Menu button, mobile only. */}}
     <button type="button"
             class="-mr-2 flex h-11 items-center gap-2 px-2 text-[0.6875rem] uppercase tracking-[0.2em] text-muted sm:hidden"
             aria-label="Ouvrir le menu"
@@ -51,7 +51,7 @@
   <div class="h-px bg-line/50"></div>
 </header>
 
-{{- /* Panneau de navigation mobile. */}}
+{{- /* Mobile navigation panel. */}}
 <dialog id="menu"
         class="m-0 h-dvh max-h-none w-full max-w-none bg-background p-0 text-text backdrop:bg-primary/20 open:flex open:flex-col"
         aria-label="Navigation">
@@ -71,7 +71,7 @@
     </button>
   </div>
 
-  {{- /* Les liens occupent le bas de l'écran : utilisation à une main. */}}
+  {{- /* The links sit at the bottom of the screen: one-handed use. */}}
   <nav class="flex flex-1 flex-col justify-center px-8 pb-20">
     <ul class="flex flex-col gap-1">
       {{- range site.Menus.main }}

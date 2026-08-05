@@ -6,7 +6,7 @@ title = 'Coline & Julien'
 enableRobotsTXT = true
 enableInlineShortcodes = true
 
-# Le site est privé : pas de flux, pas de sitemap, pas d'indexation.
+# The site is private: no feeds, no sitemap, no indexing.
 disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
 
 [build]
@@ -31,19 +31,19 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
 [markup.goldmark.renderer]
   unsafe = true
 
-# Navigation. L'ordre défini ici est celui du menu et du lien « page suivante »
-# en bas de chaque page.
+# Navigation. The order defined here drives both the menu and the "next page"
+# link at the bottom of every page.
 [[menus.main]]
   name = 'Accueil'
   pageRef = '/'
   weight = 10
 [[menus.main]]
   name = 'Programme'
-  pageRef = '/programme'
+  pageRef = '/schedule'
   weight = 20
 [[menus.main]]
   name = 'Lieu'
-  pageRef = '/lieu'
+  pageRef = '/venue'
   weight = 30
 [[menus.main]]
   name = 'RSVP'
@@ -63,7 +63,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
 
 [params]
   # ---------------------------------------------------------------------------
-  # Les mariés
+  # The couple
   # ---------------------------------------------------------------------------
   brideFirstName = 'Coline'
   groomFirstName = 'Julien'
@@ -72,7 +72,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
   marriedName = 'Coline Méreau-Versmessen'
 
   # ---------------------------------------------------------------------------
-  # Dates — format ISO pour les balises <time>, format long pour l'affichage
+  # Dates — ISO format for <time> tags, long format for display
   # ---------------------------------------------------------------------------
   civilDate = '2026-03-28'
   weddingDate = '2027-08-07'
@@ -80,7 +80,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
   weekendLong = 'Du vendredi 6 au dimanche 8 août 2027'
 
   # ---------------------------------------------------------------------------
-  # Lieu
+  # Venue
   # ---------------------------------------------------------------------------
   [params.venue]
     name = 'Maison Familiale de Berlencourt-Le-Cauroy'
@@ -91,21 +91,21 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
     mapsUrl = 'https://maps.app.goo.gl/6Cfe8bpqcX1J4paj7'
 
   # ---------------------------------------------------------------------------
-  # Liens externes
+  # External links
   #
-  # Laisser une valeur vide ('') masque simplement le bouton concerné : la page
-  # reste en ligne avec son texte, sans lien mort pour les invités.
-  # Remplacer par l'URL réelle dès qu'elle est disponible.
+  # Leaving a value empty ('') simply hides the matching button: the page stays
+  # online with its text, without a dead link for the guests.
+  # Replace with the real URL as soon as it is available.
   # ---------------------------------------------------------------------------
   [params.links]
-    rsvp = ''       # Google Forms — TODO : formulaire à créer
-    playlist = ''   # Playlist Spotify collaborative — TODO
-    photos = ''     # Album Google Photos — TODO
+    rsvp = ''       # Google Forms — TODO: form still to be created
+    playlist = ''   # Collaborative Spotify playlist — TODO
+    photos = ''     # Google Photos album — TODO
 
   # ---------------------------------------------------------------------------
-  # Images (chemins relatifs à assets/)
+  # Images (paths relative to assets/)
   # ---------------------------------------------------------------------------
   [params.images]
-    couple = 'images/couple-mariage-civil.jpg'
-    family = 'images/famille-mariage-civil.jpg'
-    programme = ''  # Image du programme — TODO : déposer dans assets/images/
+    couple = 'images/couple-civil-wedding.jpg'
+    family = 'images/family-civil-wedding.jpg'
+    schedule = ''   # Schedule image — TODO: drop it into assets/images/

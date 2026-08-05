@@ -1,3 +1,3 @@
-{{- /* Site privé, réservé aux invités : aucun robot n'est autorisé. */ -}}
+{{- /* Private site, guests only: no robot is allowed. */ -}}
 User-agent: *
 Disallow: /

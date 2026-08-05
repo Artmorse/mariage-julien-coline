@@ -1,17 +1,17 @@
 {{- /*
-  Photographie responsive.
+  Responsive photograph.
 
-  Les fichiers sources sont des JPEG de 5184 px issus de l'appareil : ils sont
-  redimensionnés à la compilation et servis en AVIF avec repli JPEG, avec un
-  srcset pour ne jamais envoyer plus de pixels que nécessaire sur mobile.
+  The source files are 5184 px JPEGs straight out of the camera: they are
+  resized at build time and served as AVIF with a JPEG fallback, with a srcset
+  so that no more pixels than necessary are ever sent to a phone.
 
-  Paramètres :
-    path     — chemin dans assets/ (obligatoire)
-    alt      — texte alternatif (obligatoire)
-    ratio    — recadrage optionnel, ex. "4x5", "3x2"
-    sizes    — attribut sizes, défaut : pleine largeur du contenu
-    class    — classes appliquées au <img>
-    loading  — "eager" pour l'image du premier écran, sinon "lazy"
+  Parameters:
+    path     — path inside assets/ (required)
+    alt      — alternative text (required)
+    ratio    — optional crop, e.g. "4x5", "3x2"
+    sizes    — sizes attribute, defaults to the full content width
+    class    — classes applied to the <img>
+    loading  — "eager" for the above-the-fold image, "lazy" otherwise
 */ -}}
 {{- $path := .path }}
 {{- $alt := .alt }}
@@ -21,12 +21,12 @@
 {{- $loading := default "lazy" .loading }}
 
 {{- with resources.Get $path }}
-  {{- /* Les JPEG sortis de l'appareil portent une balise Exif d'orientation :
-         sans AutoOrient en premier, les portraits s'affichent couchés. */}}
+  {{- /* JPEGs out of the camera carry an Exif orientation tag: without
+         AutoOrient first, portrait shots are displayed lying down. */}}
   {{- $base := images.Filter images.AutoOrient . }}
 
-  {{- /* Recadrage éventuel, en privilégiant le centre : le mode « smart »
-         garde la zone la plus signifiante de la photo. */}}
+  {{- /* Optional crop: the "smart" mode keeps the most meaningful area of the
+         photograph. */}}
   {{- if $ratio }}
     {{- $w := 1600 }}
     {{- $parts := split $ratio "x" }}
@@ -63,5 +63,5 @@
          class="{{ $class }}">
   </picture>
 {{- else }}
-  {{- warnf "figure.html : image introuvable dans assets/ : %q" $path }}
+  {{- warnf "figure.html: image not found in assets/: %q" $path }}
 {{- end }}

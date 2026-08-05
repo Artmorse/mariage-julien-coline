@@ -1,8 +1,8 @@
 /*
- * Le strict minimum : ouverture et fermeture du menu mobile.
+ * The bare minimum: opening and closing the mobile menu.
  *
- * Tout le reste (animations, transitions, focus, fermeture au clavier) est géré
- * par le CSS et par l'élément natif <dialog>.
+ * Everything else (animations, transitions, focus, keyboard dismissal) is
+ * handled by the CSS and by the native <dialog> element.
  */
 (function () {
   'use strict';
@@ -26,12 +26,12 @@
     el.addEventListener('click', close);
   });
 
-  // Fermeture au clic sur le fond, hors de la zone de navigation.
+  // Close on a click on the backdrop, outside the navigation area.
   menu.addEventListener('click', function (event) {
     if (event.target === menu) close();
   });
 
-  // Le menu ne doit pas rester ouvert lors d'un retour arrière depuis le cache.
+  // The menu must not stay open when navigating back from the cache.
   window.addEventListener('pageshow', function () {
     if (menu.open) close();
   });

@@ -6,8 +6,8 @@
       {{ .Content }}
     </div>
 
-    {{- /* Bouton vers un contenu externe, piloté par le front matter :
-           linkKey pointe vers une clé de params.links dans hugo.toml. */}}
+    {{- /* Button to external content, driven by the front matter: linkKey
+           points to a key of params.links in hugo.toml. */}}
     {{- with .Params.linkKey }}
       {{ partial "link-button.html" (dict
           "url" (index site.Params.links .)

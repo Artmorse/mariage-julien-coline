@@ -1,7 +1,7 @@
 {{- /*
-  Compilation Tailwind. Appelée via templates.Defer pour que hugo_stats.json
-  soit complet : sans cela, les classes des dernières pages rendues seraient
-  purgées de la feuille de style.
+  Tailwind build. Called through templates.Defer so that hugo_stats.json is
+  complete: without it, the classes of the last rendered pages would be purged
+  from the stylesheet.
 */ -}}
 {{- with resources.Get "css/main.css" }}
   {{- $opts := dict "minify" (not hugo.IsDevelopment) }}

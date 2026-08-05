@@ -1,32 +1,35 @@
-# Coline & Julien — 7 août 2027
+# Coline & Julien — 7 August 2027
 
-Site compagnon du mariage de Coline et Julien, destiné exclusivement aux invités.
+Companion site for Coline and Julien's wedding, intended for guests only.
 
-En ligne : <https://julien-coline.lemorse.tech>
+Online at <https://julien-coline.lemorse.tech>
+
+> The code, comments and documentation are in English. Everything the guests
+> read — page content, menu labels, dates — stays in French.
 
 ---
 
-## Démarrer en local
+## Running it locally
 
-Les versions d'outils sont épinglées dans `.tool-versions` (asdf) :
+Tool versions are pinned in `.tool-versions` (asdf):
 
 ```sh
 asdf install          # Hugo 0.164.0 (extended) + Node.js 22.16.0
-npm ci                # dépendances Tailwind CSS
+npm ci                # Tailwind CSS dependencies
 hugo server           # http://localhost:1313
 ```
 
-Compiler la version de production :
+Build the production version:
 
 ```sh
-hugo --gc --minify    # résultat dans public/
+hugo --gc --minify    # output in public/
 ```
 
 ---
 
-## Ce qui se modifie sans toucher au code
+## What can be changed without touching the code
 
-### Liens externes — `hugo.toml`, section `[params.links]`
+### External links — `hugo.toml`, `[params.links]` section
 
 ```toml
 rsvp = ''       # Google Forms
@@ -34,86 +37,88 @@ playlist = ''   # Spotify
 photos = ''     # Google Photos
 ```
 
-Tant qu'une valeur est vide, le bouton de la page concernée est remplacé par
-une mention d'attente discrète (« Formulaire bientôt disponible »). Aucun lien
-mort n'est jamais présenté aux invités : il suffit de coller l'URL pour activer
-le bouton.
+As long as a value is empty, the button on the matching page is replaced by a
+discreet waiting note ("Formulaire bientôt disponible"). No dead link is ever
+shown to the guests: pasting the URL is enough to activate the button.
 
-### Programme — `data/programme.yaml`
+### Schedule — `data/schedule.yaml`
 
-Chaque journée contient une liste d'événements (heure, titre, description).
-`tentative: true` affiche la mention « Horaires à confirmer ».
+Each day holds a list of events (time, title, description). `tentative: true`
+displays the "Horaires à confirmer" note.
 
-### Textes des pages — `content/*.md`
+### Page text — `content/*.md`
 
-Le front matter porte le titre, le sur-titre (`eyebrow`) et le chapô (`lead`) ;
-le corps du fichier est du Markdown classique.
+The front matter carries the title, the eyebrow and the lead; the body of the
+file is plain Markdown.
 
-### Palette et typographie — `assets/css/main.css`
+### Palette and typography — `assets/css/main.css`
 
-Les seules valeurs hexadécimales du projet se trouvent dans le bloc `:root`.
-Le bloc `@theme` associe ces couleurs brutes à des rôles sémantiques
-(`--color-primary`, `--color-surface`, …) que Tailwind expose ensuite comme
-utilitaires (`text-primary`, `bg-surface`). Changer la charte graphique revient
-donc à modifier un seul bloc.
+The only hexadecimal values in the project sit in the `:root` block. The
+`@theme` block maps those raw colours to semantic roles (`--color-primary`,
+`--color-surface`, …), which Tailwind then exposes as utilities
+(`text-primary`, `bg-surface`). Changing the visual identity therefore comes
+down to editing a single block.
 
-### Photographies — `assets/images/`
+### Photographs — `assets/images/`
 
-Les fichiers originaux de l'appareil sont utilisés tels quels : Hugo les
-redimensionne à la compilation, les convertit en AVIF avec repli JPEG et
-corrige leur orientation Exif. Un téléphone reçoit une image d'environ 30 Ko.
+The original files from the camera are used as they are: Hugo resizes them at
+build time, converts them to AVIF with a JPEG fallback and corrects their Exif
+orientation. A phone receives an image of roughly 30 KB.
 
-Pour afficher l'image du programme, la déposer dans `assets/images/` puis
-renseigner `programme` dans `[params.images]`.
+To display the schedule image, drop it into `assets/images/` and fill in
+`schedule` under `[params.images]`.
 
 ---
 
 ## Structure
 
 ```
-assets/css/main.css     charte graphique et styles
-assets/js/main.js       ouverture du menu mobile (seul JavaScript du site)
-assets/images/          photographies sources
-content/                textes des pages
-data/programme.yaml     déroulé du week-end
-layouts/                gabarits Hugo
-  baseof.html           squelette commun
-  home.html             accueil
-  page.html             gabarit générique (RSVP, Playlist, Photos)
-  programme.html        page Programme
-  lieu.html             page Lieu
-  _partials/            en-tête, pied de page, photographie, bouton externe
-static/                 polices, favicon, CNAME
+assets/css/main.css     visual identity and styles
+assets/js/main.js       mobile menu toggle (the site's only JavaScript)
+assets/images/          source photographs
+content/                page text
+data/schedule.yaml      weekend timeline
+layouts/                Hugo templates
+  baseof.html           shared skeleton
+  home.html             home page
+  page.html             generic template (RSVP, Playlist, Photos)
+  schedule.html         Programme page
+  venue.html            Lieu page
+  _partials/            header, footer, photograph, external button
+static/                 fonts, favicon, CNAME
 ```
 
----
-
-## Déploiement
-
-`.github/workflows/deploy.yml` compile et publie le site sur GitHub Pages à
-chaque arrivée de code sur `main`. Aucune action manuelle n'est nécessaire.
-
-Le domaine personnalisé est déclaré dans `static/CNAME`. Il doit correspondre à
-`baseURL` dans `hugo.toml`.
+Templates and data files are named in English, so the public URLs are
+`/schedule/` and `/venue/` while the menu still reads "Programme" and "Lieu".
 
 ---
 
-## Confidentialité
+## Deployment
 
-Le site n'est pas indexable : `robots.txt` interdit tous les robots et chaque
-page porte `noindex, nofollow, noarchive`. Aucun sitemap ni flux RSS n'est
-généré. Les polices sont auto-hébergées : le site n'émet aucune requête vers un
-service tiers, et donc aucun traçage.
+`.github/workflows/deploy.yml` builds and publishes the site to GitHub Pages on
+every push to `main`. No manual step is needed.
 
-L'accès reste toutefois public pour qui connaît l'URL. Une authentification
-légère est listée dans les évolutions possibles du PRD.
+The custom domain is declared in `static/CNAME`. It must match `baseURL` in
+`hugo.toml`.
 
 ---
 
-## Reste à faire
+## Privacy
 
-- créer le formulaire RSVP et renseigner son URL
-- créer la playlist Spotify collaborative et l'album Google Photos
-- confirmer les horaires du vendredi et du dimanche
-- compléter la page Lieu : stationnement, hébergements, Wi-Fi, contacts
-- charte graphique définitive, monogramme et favicon
+The site is not indexable: `robots.txt` disallows every robot and each page
+carries `noindex, nofollow, noarchive`. No sitemap and no RSS feed are
+generated. The fonts are self-hosted, so the site issues no request to any
+third-party service, and therefore no tracking.
+
+Access nevertheless remains public to anyone who knows the URL. Lightweight
+authentication is listed among the possible next steps in the PRD.
+
+---
+
+## Still to do
+
+- create the RSVP form and fill in its URL
+- create the collaborative Spotify playlist and the Google Photos album
+- confirm the Friday and Sunday timings
+- complete the Lieu page: parking, accommodation, Wi-Fi, contacts
+- final visual identity, monogram and favicon

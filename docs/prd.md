@@ -1,62 +1,65 @@
 # Product Requirements Document
 
-> Version : 0.1
-> Statut : En cours de rédaction
-> Dernière mise à jour : 2026-08-05
+> Version: 0.1
+> Status: Draft
+> Last updated: 2026-08-05
 
 ---
 
-# 1. Présentation
+# 1. Overview
 
-## Objectif
+## Goal
 
-Créer un site web élégant, moderne et minimaliste permettant d'accompagner les invités avant, pendant et éventuellement après le mariage de Coline et Julien.
+Build an elegant, modern and minimalist website that accompanies the guests
+before, during and possibly after Coline and Julien's wedding.
 
-Le site ne doit pas être perçu comme un simple site d'information mais comme un véritable compagnon du mariage.
+The site should not be perceived as a plain information site but as a true
+companion to the wedding.
 
-L'expérience doit être fluide, chaleureuse et familiale.
+The experience must be smooth, warm and family-like.
 
 ---
 
-# 2. Les mariés
+# 2. The couple
 
-**Mariée**
+**Bride**
 
-- Nom de jeune fille : Coline Metta-Versmessen
-- Nom après mariage : Coline Méreau-Versmessen
+- Maiden name: Coline Metta-Versmessen
+- Married name: Coline Méreau-Versmessen
 
-**Marié**
+**Groom**
 
 - Julien Méreau
 
-Le mariage civil a déjà été célébré le **28 mars 2026** en petit comité.
+The civil wedding was already celebrated on **28 March 2026** with a small
+gathering.
 
-Le week-end du **7 août 2027** correspond à la célébration avec les invités.
+The weekend of **7 August 2027** is the celebration with the guests.
 
 ---
 
-# 3. Informations générales
+# 3. General information
 
 ## Dates
 
-Vendredi 6 août 2027
+Friday 6 August 2027
 
-- Accueil des invités (à confirmer)
+- Welcoming the guests (to be confirmed)
 
-Samedi 7 août 2027
+Saturday 7 August 2027
 
-- Cérémonie
+- Ceremony
 - Cocktail
-- Repas
-- Soirée
+- Dinner
+- Party
 
-Dimanche 8 août 2027
+Sunday 8 August 2027
 
-- Brunch / départ (à confirmer)
+- Brunch / departure (to be confirmed)
 
 ---
 
-## Lieu
+## Venue
 
 Maison Familiale de Berlencourt-Le-Cauroy
 
@@ -70,15 +73,15 @@ https://maps.app.goo.gl/6Cfe8bpqcX1J4paj7
 
 ---
 
-# 4. Public
+# 4. Audience
 
-Le site est exclusivement destiné aux invités.
+The site is intended exclusively for the guests.
 
-Le référencement sur les moteurs de recherche est désactivé.
+Search engine indexing is disabled.
 
-L'accès se fera principalement via un QR Code présent sur les faire-part.
+Access will happen mainly through a QR code printed on the invitations.
 
-URL provisoire :
+Provisional URL:
 
 julien-coline.lemorse.tech
 
@@ -86,26 +89,27 @@ julien-coline.lemorse.tech
 
 # 5. Vision
 
-Le site doit transmettre l'ambiance du mariage.
+The site must convey the atmosphere of the wedding.
 
-Mots-clés :
+Keywords:
 
-- élégant
-- chaleureux
-- familial
-- moderne
-- épuré
-- fluide
-- nature
-- sobre
+- elegant
+- warm
+- family-like
+- modern
+- uncluttered
+- smooth
+- natural
+- understated
 
-Ce ne doit pas ressembler à un site web classique composé de grosses cartes ou de nombreuses sections.
+It must not look like a conventional website made of large cards or numerous
+sections.
 
-Chaque page doit respirer.
+Every page must breathe.
 
-La navigation doit être discrète.
+Navigation must be discreet.
 
-L'accent est mis sur la typographie, les photographies et les espaces.
+The emphasis is on typography, photographs and whitespace.
 
 ---
 
@@ -113,9 +117,9 @@ L'accent est mis sur la typographie, les photographies et les espaces.
 
 ## Palette
 
-À confirmer avec la charte graphique.
+To be confirmed with the visual identity.
 
-Palette provisoire :
+Provisional palette:
 
 - Forest
 - Moss
@@ -125,15 +129,15 @@ Palette provisoire :
 
 ---
 
-## Typographie
+## Typography
 
-Proposition actuelle
+Current proposal
 
-Titres
+Headings
 
 - Cormorant Garamond
 
-Texte
+Body text
 
 - Inter
 
@@ -141,146 +145,146 @@ Texte
 
 ## Animations
 
-Animations douces.
+Gentle animations.
 
-Objectifs :
+Goals:
 
-- transitions entre les pages
+- transitions between pages
 - micro-interactions
-- apparition progressive des éléments
+- gradual reveal of elements
 
-À éviter :
+To avoid:
 
-- animations complexes
-- effets spectaculaires
-- parallaxes importantes
+- complex animations
+- spectacular effects
+- heavy parallax
 
 ---
 
 # 7. Navigation
 
-Navigation discrète.
+Discreet navigation.
 
-Le site est pensé en priorité pour le mobile.
+The site is designed mobile-first.
 
-Premières pages :
+First pages:
 
-- Accueil
-- Programme
-- Lieu
+- Home
+- Schedule
+- Venue
 - RSVP
 - Playlist
 - Photos
 
-D'autres pages pourront être ajoutées par la suite.
+Further pages may be added later.
 
 ---
 
 # 8. Pages
 
-## Accueil
+## Home
 
-Contenu prévu :
+Planned content:
 
-- photo du couple
-- noms
+- photograph of the couple
+- names
 - date
-- lieu
+- venue
 - introduction
 - navigation
 
 ---
 
-## Programme
+## Schedule
 
-Première version
+First version
 
-Image du programme.
+An image of the schedule.
 
-Évolutions possibles
+Possible next steps
 
-- planning interactif
-- modifications en direct
-- annonces
+- interactive timeline
+- live changes
+- announcements
 
 ---
 
-## Lieu
+## Venue
 
-Version initiale
+Initial version
 
-- présentation
-- adresse
-- bouton Google Maps
+- introduction
+- address
+- Google Maps button
 
-Évolutions
+Next steps
 
 - parking
-- hébergement
+- accommodation
 - Wi-Fi
-- QR Code Wi-Fi
-- contacts utiles
-- informations pratiques
+- Wi-Fi QR code
+- useful contacts
+- practical information
 
 ---
 
 ## RSVP
 
-Première version
+First version
 
-Bouton vers Google Forms.
+A button to a Google Form.
 
-Le formulaire sera développé ultérieurement.
+The form will be built later.
 
 TODO
 
-Création du formulaire via Google Apps Script.
+Build the form using Google Apps Script.
 
 ---
 
 ## Playlist
 
-Présentation courte.
+A short introduction.
 
-Bouton ouvrant une playlist Spotify collaborative.
+A button opening a collaborative Spotify playlist.
 
 ---
 
 ## Photos
 
-Présentation courte.
+A short introduction.
 
-Bouton ouvrant un album Google Photos.
-
----
-
-# 9. Expérience utilisateur
-
-Le site doit être agréable à parcourir.
-
-L'utilisateur doit avoir l'impression de feuilleter un petit livre.
-
-La navigation doit être intuitive.
-
-Le contenu doit être lisible sur téléphone avec une utilisation à une main.
+A button opening a Google Photos album.
 
 ---
 
-# 10. Architecture technique
+# 9. User experience
 
-## Hébergement
+The site must be pleasant to browse.
+
+Users should feel like they are leafing through a small book.
+
+Navigation must be intuitive.
+
+The content must be readable on a phone, one-handed.
+
+---
+
+# 10. Technical architecture
+
+## Hosting
 
 GitHub Pages
 
 ---
 
-## Domaine
+## Domain
 
 julien-coline.lemorse.tech
 
 ---
 
-## Générateur
+## Generator
 
 Hugo
 
@@ -290,9 +294,9 @@ Hugo
 
 Tailwind CSS
 
-Les couleurs seront redéfinies à partir de variables CSS.
+Colours will be redefined from CSS variables.
 
-Exemple :
+For example:
 
 --color-primary
 
@@ -304,31 +308,31 @@ Exemple :
 
 --color-text
 
-Les couleurs Tailwind utiliseront ces variables.
+Tailwind colours will use those variables.
 
 ---
 
 ## JavaScript
 
-Le minimum possible.
+As little as possible.
 
-Aucun framework lourd.
+No heavy framework.
 
 ---
 
-## Déploiement
+## Deployment
 
 GitHub Actions
 
-Déploiement automatique à chaque merge sur la branche principale.
+Automatic deployment on every merge into the main branch.
 
 ---
 
 ## SEO
 
-Le site ne doit pas être indexé.
+The site must not be indexed.
 
-Meta robots :
+Meta robots:
 
 noindex
 
@@ -340,15 +344,15 @@ noarchive
 
 # 11. Responsive
 
-Mobile First.
+Mobile first.
 
-Le site doit être parfaitement utilisable sur smartphone.
+The site must be perfectly usable on a smartphone.
 
-Le desktop est secondaire.
+Desktop is secondary.
 
 ---
 
-# 12. Contenus externes
+# 12. External content
 
 Google Forms
 
@@ -362,63 +366,73 @@ Google Maps
 
 # 13. MVP
 
-Première version
+First version
 
-- Accueil
-- Programme
-- Lieu
+- Home
+- Schedule
+- Venue
 - RSVP
 - Playlist
 - Photos
 - Navigation
 - Responsive
-- Déploiement automatique
+- Automatic deployment
 
 ---
 
-# 14. Idées futures
+# 14. Future ideas
 
 ## Design
 
-- illustrations florales
-- monogramme
-- favicon personnalisé
-- shooting photo
-- charte graphique définitive
+- floral illustrations
+- monogram
+- custom favicon
+- photo shoot
+- final visual identity
 
 ---
 
-## Fonctionnalités
+## Features
 
-- bannière d'information
-- trombinoscope
-- contacts utiles
-- QR Code Wi-Fi
-- hébergement
+- information banner
+- guest directory
+- useful contacts
+- Wi-Fi QR code
+- accommodation
 - parking
 - FAQ
-- annonces
-- programme dynamique
-- galerie après le mariage
+- announcements
+- dynamic schedule
+- gallery after the wedding
 
 ---
 
-## Technique
+## Technical
 
-- authentification légère via URL
-- paramètres d'accès
+- lightweight authentication through the URL
+- access parameters
 - Google Apps Script
-- administration simplifiée
+- simplified administration
 
 ---
 
-# 15. Questions ouvertes
+# 15. Open questions
 
-- Charte graphique
+- Visual identity
 - Logo
-- Photos officielles
-- Contenu du RSVP
-- Programme définitif
-- Hébergements
-- Informations pratiques
-- Contacts utiles
+- Official photographs
+- RSVP content
+- Final schedule
+- Accommodation
+- Practical information
+- Useful contacts
+
+---
+
+# 16. Language convention
+
+The code base is written in English: comments, documentation, template and data
+file names, HTML identifiers, and CI step names.
+
+Everything the guests read stays in French: page content, menu labels, button
+labels, dates and ARIA labels.

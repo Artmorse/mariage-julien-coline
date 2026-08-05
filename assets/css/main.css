@@ -2,8 +2,8 @@
 @source "hugo_stats.json";
 
 /* ===========================================================================
-   Polices auto-hébergées — aucune requête vers un service tiers.
-   Fichiers variables (woff2) : une seule requête couvre toutes les graisses.
+   Self-hosted fonts — no request to any third-party service.
+   Variable files (woff2): a single request covers every weight.
    =========================================================================== */
 
 @font-face {
@@ -73,14 +73,14 @@
 }
 
 /* ===========================================================================
-   Charte graphique — source unique de vérité.
+   Visual identity — single source of truth.
 
-   Toutes les couleurs du site descendent de ces variables. Pour rebasculer la
-   palette lors de la charte définitive, il suffit de modifier ce bloc :
-   aucune valeur hexadécimale n'est écrite ailleurs dans le projet.
+   Every colour on the site derives from these variables. To switch the palette
+   over when the final identity lands, editing this block is enough: no
+   hexadecimal value is written anywhere else in the project.
    =========================================================================== */
 
-/* Palette brute — les seules valeurs hexadécimales du projet. */
+/* Raw palette — the only hexadecimal values in the project. */
 :root {
   --forest: #2f4034;
   --moss: #55694f;
@@ -91,8 +91,8 @@
   --white: #fdfcf9;
 }
 
-/* Rôles sémantiques. Tailwind expose chacun à la fois comme utilitaire
-   (bg-primary, text-muted…) et comme variable CSS (var(--color-primary)). */
+/* Semantic roles. Tailwind exposes each one both as a utility (bg-primary,
+   text-muted…) and as a CSS variable (var(--color-primary)). */
 @theme {
   --color-*: initial;
 
@@ -141,7 +141,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* Cible tactile confortable, utilisation à une main. */
+  /* Comfortable touch target, one-handed use. */
   a,
   button {
     -webkit-tap-highlight-color: transparent;
@@ -160,11 +160,11 @@
 }
 
 /* ===========================================================================
-   Composants
+   Components
    =========================================================================== */
 
 @layer components {
-  /* Titre de section : capitales espacées, discret. */
+  /* Section heading: spaced capitals, discreet. */
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
@@ -174,7 +174,7 @@
     color: var(--color-muted);
   }
 
-  /* Bouton principal — lien vers un contenu externe. */
+  /* Primary button — link to external content. */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -209,7 +209,7 @@
     color: var(--color-background);
   }
 
-  /* Corps de texte des pages rédigées en Markdown. */
+  /* Body text of the pages written in Markdown. */
   .prose-page > p {
     margin-top: 1.375rem;
     max-width: 34rem;
@@ -273,7 +273,7 @@
     font-weight: 500;
   }
 
-  /* Filet de séparation orné — remplace les cartes et les gros blocs. */
+  /* Ornate separator rule — replaces cards and large blocks. */
   .rule {
     display: flex;
     align-items: center;
@@ -292,7 +292,7 @@
 }
 
 /* ===========================================================================
-   Animations — apparition progressive, douce, jamais spectaculaire.
+   Animations — gradual, gentle, never spectacular.
    =========================================================================== */
 
 @keyframes rise {
@@ -316,8 +316,8 @@
 }
 
 @layer utilities {
-  /* Apparition à l'ouverture de la page. Les délais échelonnent les éléments
-     pour donner la sensation de tourner une page de livre. */
+  /* Reveal on page load. The delays stagger the elements to evoke turning the
+     page of a book. */
   .rise {
     animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
@@ -334,7 +334,7 @@
   .delay-6 { animation-delay: 0.85s; }
 }
 
-/* Respect strict de la préférence système : aucun mouvement imposé. */
+/* Strict respect of the system preference: no motion is ever forced. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

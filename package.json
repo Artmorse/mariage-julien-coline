@@ -1,7 +1,7 @@
 {
   "name": "mariage-julien-coline",
   "version": "1.0.0",
-  "description": "",
+  "description": "Companion website for Coline and Julien's wedding",
   "main": "index.js",
   "directories": {
     "doc": "docs"

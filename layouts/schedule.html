@@ -6,10 +6,10 @@
       <div class="rise delay-3 prose-page">{{ . }}</div>
     {{- end }}
 
-    {{- /* Si une image du programme est fournie dans hugo.toml, elle est
-           affichée telle quelle : c'est la première version prévue. Le
-           déroulé détaillé ci-dessous reste lisible en toutes circonstances. */}}
-    {{- with site.Params.images.programme }}
+    {{- /* If a schedule image is provided in hugo.toml, it is displayed as is:
+           that is the planned first version. The detailed timeline below stays
+           readable in every case. */}}
+    {{- with site.Params.images.schedule }}
       <figure class="rise delay-3 mt-12">
         {{ partial "figure.html" (dict
             "path" .
@@ -19,9 +19,9 @@
       </figure>
     {{- end }}
 
-    {{- /* Déroulé jour par jour, alimenté par data/programme.yaml. */}}
+    {{- /* Day-by-day timeline, fed by data/schedule.yaml. */}}
     <div class="mt-4">
-      {{- range $i, $day := hugo.Data.programme }}
+      {{- range $i, $day := hugo.Data.schedule }}
         <section class="rise mt-16 first:mt-0" style="animation-delay: {{ mul (add $i 2) 0.12 }}s">
           <div class="flex items-baseline gap-4">
             <h2 class="font-display text-3xl text-primary sm:text-4xl">{{ $day.day }}</h2>
@@ -37,8 +37,8 @@
             <p class="mt-2 text-sm text-muted/80 italic">Horaires à confirmer</p>
           {{- end }}
 
-          {{- /* Ligne de temps : un filet vertical, des heures alignées.
-                 Volontairement plat, sans cartes ni encadrés. */}}
+          {{- /* Timeline: a vertical rule with aligned times. Deliberately
+                 flat, no cards and no boxes. */}}
           <ol class="mt-7 border-l border-line/60">
             {{- range $day.events }}
               <li class="relative pb-9 pl-6 last:pb-0">

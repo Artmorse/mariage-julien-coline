@@ -1,6 +1,6 @@
-name: Déploiement
+name: Deploy
 
-# Le site est publié automatiquement à chaque arrivée de code sur main.
+# The site is published automatically on every push to main.
 on:
   push:
     branches:
@@ -12,7 +12,7 @@ permissions:
   pages: write
   id-token: write
 
-# Un seul déploiement à la fois, sans annuler celui en cours.
+# One deployment at a time, without cancelling the one in progress.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -23,29 +23,29 @@ defaults:
 
 jobs:
   build:
-    name: Compilation
+    name: Build
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.164.0
       NODE_VERSION: 22.16.0
       TZ: Europe/Paris
     steps:
-      - name: Récupération des sources
+      - name: Check out the sources
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Configuration de GitHub Pages
+      - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v6
 
-      - name: Installation de Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
-      - name: Installation de Hugo
+      - name: Install Hugo
         run: |
           curl -sfL --output-dir "${{ runner.temp }}" -O \
             "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
@@ -53,17 +53,17 @@ jobs:
           tar -C "${HOME}/.local/hugo" -xf "${{ runner.temp }}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           echo "${HOME}/.local/hugo" >> "$GITHUB_PATH"
 
-      - name: Versions des outils
+      - name: Tool versions
         run: |
           hugo version
           node --version
 
-      - name: Installation des dépendances Node.js
+      - name: Install the Node.js dependencies
         run: npm ci
 
-      # Le cache accélère surtout le redimensionnement des photographies,
-      # qui représente l'essentiel du temps de compilation.
-      - name: Restauration du cache Hugo
+      # The cache mostly speeds up resizing the photographs, which accounts
+      # for most of the build time.
+      - name: Restore the Hugo cache
         id: cache-restore
         uses: actions/cache/restore@v5
         with:
@@ -71,35 +71,35 @@ jobs:
           key: hugo-${{ github.run_id }}
           restore-keys: hugo-
 
-      # baseURL n'est pas surchargée : elle vient de hugo.toml et correspond
-      # au domaine personnalisé déclaré dans static/CNAME.
-      - name: Compilation du site
+      # baseURL is not overridden: it comes from hugo.toml and matches the
+      # custom domain declared in static/CNAME.
+      - name: Build the site
         run: |
           hugo build \
             --gc \
             --minify \
             --cacheDir "${{ runner.temp }}/hugo_cache"
 
-      - name: Sauvegarde du cache Hugo
+      - name: Save the Hugo cache
         uses: actions/cache/save@v5
         if: always()
         with:
           path: ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
-      - name: Publication de l'artefact
+      - name: Upload the artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
   deploy:
-    name: Mise en ligne
+    name: Deploy
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Déploiement sur GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

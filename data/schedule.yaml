@@ -1,9 +1,9 @@
-# Programme du week-end.
+# Weekend schedule.
 #
-# Ce fichier est la source unique du planning : modifier une heure ou un
-# intitulé ici met à jour la page Programme, sans toucher aux gabarits.
+# This file is the single source of truth for the timeline: changing a time or a
+# label here updates the Programme page, without touching the templates.
 #
-# tentative: true affiche la mention « à confirmer » à côté de l'événement.
+# tentative: true displays a "to be confirmed" note next to the day.
 
 - day: "Vendredi"
   date: "2027-08-06"

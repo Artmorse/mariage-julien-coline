@@ -2,7 +2,7 @@
 title: "Le lieu"
 eyebrow: "Berlencourt-le-Cauroy"
 lead: "Tout se passera dans une grande maison au cœur des Hauts-de-France, à une heure d'Arras et de la côte."
-layout: "lieu"
+layout: "venue"
 weight: 30
 ---
 

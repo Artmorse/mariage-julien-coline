@@ -1,8 +1,8 @@
 {{- /*
-  Renvoie la page suivante dans l'ordre du menu principal, sous forme de dict
-  (Name, URL, Label). La dernière page renvoie vers l'accueil.
+  Returns the next page in main-menu order, as a dict (Name, URL, Label). The
+  last page points back to the home page.
 
-  Retourne nil si la page courante n'est pas dans le menu.
+  Returns nil when the current page is not in the menu.
 */ -}}
 {{- $result := "" }}
 {{- $menu := site.Menus.main }}
