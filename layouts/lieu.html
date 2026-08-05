@@ -1,0 +1,56 @@
+{{ define "main" }}
+  {{- $v := site.Params.venue }}
+
+  <article class="mx-auto max-w-3xl px-6">
+    {{ partial "page-header.html" . }}
+
+    {{- with site.Params.images.family }}
+      <figure class="rise delay-2 mb-14">
+        {{ partial "figure.html" (dict
+            "path" .
+            "alt" "La famille réunie le jour du mariage civil"
+            "ratio" "3x2"
+            "class" "w-full"
+        ) }}
+      </figure>
+    {{- end }}
+
+    {{- with .Content }}
+      <div class="rise delay-3 prose-page">{{ . }}</div>
+    {{- end }}
+
+    {{- /* Adresse : sélectionnable et copiable d'un seul geste. */}}
+    <section class="rise mt-16">
+      <h2 class="eyebrow">Adresse</h2>
+      <address class="mt-4 font-display text-2xl leading-snug text-primary not-italic sm:text-[1.75rem]">
+        {{ $v.name }}<br>
+        {{ $v.street }}<br>
+        {{ $v.postcode }} {{ $v.city }}
+      </address>
+
+      {{ partial "link-button.html" (dict
+          "url" $v.mapsUrl
+          "label" "Ouvrir dans Google Maps"
+          "note" "Le GPS peut hésiter dans le village : suivez les indications sur place le jour J."
+      ) }}
+    </section>
+
+    {{- /* Informations pratiques encore à venir : annoncées sans faire de
+           promesse, pour que les invités sachent où regarder plus tard. */}}
+    <section class="rise mt-20">
+      <h2 class="eyebrow">Informations pratiques</h2>
+      <p class="mt-4 max-w-md text-[0.9375rem] leading-relaxed text-muted">
+        Nous compléterons cette page au fil des mois avec le stationnement, les
+        hébergements à proximité, l'accès Wi-Fi et les contacts utiles.
+      </p>
+      <ul class="mt-6 max-w-md">
+        {{- range slice "Stationnement" "Hébergements à proximité" "Accès Wi-Fi" "Contacts utiles" }}
+          <li class="flex items-baseline justify-between gap-4 border-b border-line/40 py-3.5">
+            <span class="text-[0.9375rem]">{{ . }}</span>
+            <span class="shrink-0 text-[0.625rem] tracking-[0.16em] text-muted/70 uppercase">À venir</span>
+          </li>
+        {{- end }}
+      </ul>
+    </section>
+  </article>
+{{ end }}

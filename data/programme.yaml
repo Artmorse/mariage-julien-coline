@@ -1,0 +1,48 @@
+# Programme du week-end.
+#
+# Ce fichier est la source unique du planning : modifier une heure ou un
+# intitulé ici met à jour la page Programme, sans toucher aux gabarits.
+#
+# tentative: true affiche la mention « à confirmer » à côté de l'événement.
+
+- day: "Vendredi"
+  date: "2027-08-06"
+  dateLabel: "6 août"
+  tentative: true
+  events:
+    - time: "18h00"
+      title: "Accueil des invités"
+      description: "Arrivée à la maison, installation, premiers verres dans le jardin."
+    - time: "20h00"
+      title: "Dîner simple"
+      description: "Un repas sans façon, pour ceux qui sont déjà là."
+
+- day: "Samedi"
+  date: "2027-08-07"
+  dateLabel: "7 août"
+  highlight: true
+  events:
+    - time: "15h00"
+      title: "Cérémonie"
+      description: "Le moment que nous attendions, en plein air si le ciel le veut bien."
+    - time: "16h30"
+      title: "Cocktail"
+      description: "Bulles, bouchées et photos de famille."
+    - time: "19h30"
+      title: "Repas"
+      description: "À table, tous ensemble."
+    - time: "22h30"
+      title: "Soirée"
+      description: "La piste est à vous, jusqu'au bout de la nuit."
+
+- day: "Dimanche"
+  date: "2027-08-08"
+  dateLabel: "8 août"
+  tentative: true
+  events:
+    - time: "11h00"
+      title: "Brunch"
+      description: "Café, viennoiseries et récits de la veille."
+    - time: "14h00"
+      title: "Départs"
+      description: "On se dit au revoir, doucement."
