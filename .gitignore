@@ -6,6 +6,26 @@ hugo_stats.json
 
 # Node
 /node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Documentation (kept local)
+/docs/
+
+# Tooling / AI assistants
+/.claude/
+CLAUDE.local.md
+
+# Editors & IDEs
+/.idea/
+/.vscode/
+*.swp
+*~
+
+# Environment
+.env
+.env.*
+!.env.example
 
 # OS
 .DS_Store
