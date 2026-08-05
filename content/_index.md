@@ -7,5 +7,6 @@ Nous nous sommes dit *oui* le 28 mars 2026, en tout petit comité.
 
 Il nous restait le plus beau : le fêter avec vous.
 
-Rendez-vous cet été, dans la maison familiale, pour un week-end entier
-de retrouvailles, de tables trop longues et de danses trop tardives.
+Rendez-vous cet été, dans une grande maison des Hauts-de-France, pour un
+week-end entier de retrouvailles, de tables trop longues et de danses
+trop tardives.
