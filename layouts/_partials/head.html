@@ -1,11 +1,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+{{- $couple := printf "%s & %s" site.Params.brideFirstName site.Params.groomFirstName }}
 {{- $title := "" }}
 {{- if .IsHome }}
-  {{- $title = printf "%s & %s" site.Params.brideFirstName site.Params.groomFirstName }}
+  {{- $title = $couple }}
+{{- else if eq .Kind "404" }}
+  {{- /* Hugo's default title for this kind is in English. */}}
+  {{- $title = printf "Page introuvable — %s" $couple }}
 {{- else }}
-  {{- $title = printf "%s — %s & %s" .Title site.Params.brideFirstName site.Params.groomFirstName }}
+  {{- $title = printf "%s — %s" .Title $couple }}
 {{- end }}
 <title>{{ $title }}</title>
 

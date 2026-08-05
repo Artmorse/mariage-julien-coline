@@ -1,0 +1,52 @@
+{{- /*
+  404 page, served by GitHub Pages on every unknown URL.
+
+  The page header is written inline rather than through page-header.html: the
+  404 page is not backed by a content file, so it has no front matter to carry
+  the eyebrow and the lead.
+
+  The footer shows no "next page" link here (the 404 page is not in the menu),
+  hence the list of pages below: it is the only way out of the page.
+*/ -}}
+{{ define "main" }}
+  <article class="mx-auto max-w-3xl px-6">
+    <header class="rise pt-14 pb-10 sm:pt-20">
+      <p class="eyebrow soften delay-1">Page introuvable</p>
+      <h1 class="mt-4 font-display text-[2.75rem] leading-[1.05] text-primary sm:text-6xl">
+        Cette page s'est égarée
+      </h1>
+      <span class="title-rule rise delay-2" aria-hidden="true"></span>
+      <p class="mt-6 max-w-xl text-[1.0625rem] leading-relaxed text-muted rise delay-2">
+        Le lien est peut-être incomplet, ou la page a changé d'adresse depuis
+        que vous l'avez enregistrée. Tout le reste est resté à sa place.
+      </p>
+    </header>
+
+    <a href="{{ site.Home.RelPermalink }}" class="rise delay-3 btn btn--ghost">
+      Revenir à l'accueil
+    </a>
+
+    {{- /* Same list as the home page, so no one is left at a dead end. */}}
+    <nav class="rise delay-3 pt-20" aria-label="Les pages du site">
+      <p class="eyebrow">Les pages du site</p>
+      <ul class="mt-6 border-t border-line/50">
+        {{- range site.Menus.main }}
+          {{- $target := site.GetPage .PageRef }}
+          <li class="border-b border-line/50">
+            <a href="{{ .URL }}" class="group flex items-center justify-between gap-6 py-5">
+              <span class="flex-1">
+                <span class="block font-display text-2xl text-primary transition-colors duration-300 group-hover:text-accent">{{ .Name }}</span>
+                {{- with $target }}
+                  {{- with .Params.eyebrow }}
+                    <span class="mt-1 block text-sm text-muted">{{ . }}</span>
+                  {{- end }}
+                {{- end }}
+              </span>
+              <span class="h-px w-6 shrink-0 bg-accent transition-all duration-500 group-hover:w-10" aria-hidden="true"></span>
+            </a>
+          </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </article>
+{{ end }}

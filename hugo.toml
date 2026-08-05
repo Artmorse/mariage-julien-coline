@@ -6,8 +6,9 @@ title = 'Coline & Julien'
 enableRobotsTXT = true
 enableInlineShortcodes = true
 
-# The site is private: no feeds, no sitemap, no indexing.
-disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
+# The site is private: no feeds, no sitemap, no indexing. The 404 page stays
+# enabled: GitHub Pages serves /404.html on every unknown URL.
+disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
 
 [build]
   [build.buildStats]
