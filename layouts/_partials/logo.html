@@ -1,0 +1,55 @@
+{{- /*
+  The monogram, as a raster mark.
+
+  The source is a 616 px PNG with an alpha channel, so it cannot go through
+  figure.html: that partial is built for camera JPEGs and emits AVIF, whose
+  Hugo encoder does not carry transparency. Here we serve WebP, which does,
+  with the PNG as the fallback.
+
+  The mark carries the first names and the year as artwork, so any call site
+  that already states them in text should pass an empty alt and let this be
+  decorative.
+
+  Two cuts of the same artwork:
+    "full"     — the whole mark, ring of first names and laurels included;
+    "monogram" — only the C and the J, which is the cut the favicons use. Below
+                 roughly 120 px the ring text and the laurels turn to noise, so
+                 anything small takes this one.
+
+  Parameters:
+    mark    — "full" (default) or "monogram"
+    width   — display width in CSS pixels (required); the srcset goes to 2x
+    alt     — alternative text; empty means decorative and gets aria-hidden
+    class   — classes applied to the <img>
+    loading — "eager" above the fold, "lazy" otherwise
+*/ -}}
+{{- $mark := default "full" .mark }}
+{{- $width := .width }}
+{{- $alt := default "" .alt }}
+{{- $class := default "" .class }}
+{{- $loading := default "lazy" .loading }}
+
+{{- $file := cond (eq $mark "monogram") "images/monogram.png" "images/logo.png" }}
+
+{{- with resources.Get $file }}
+  {{- $1x := .Resize (printf "%dx png" $width) }}
+  {{- $2x := .Resize (printf "%dx png" (mul $width 2)) }}
+  {{- $w1 := .Resize (printf "%dx webp q82" $width) }}
+  {{- $w2 := .Resize (printf "%dx webp q82" (mul $width 2)) }}
+
+  <picture>
+    <source type="image/webp"
+            srcset="{{ $w1.RelPermalink }} 1x, {{ $w2.RelPermalink }} 2x">
+    <img src="{{ $1x.RelPermalink }}"
+         srcset="{{ $1x.RelPermalink }} 1x, {{ $2x.RelPermalink }} 2x"
+         width="{{ $1x.Width }}"
+         height="{{ $1x.Height }}"
+         alt="{{ $alt }}"
+         {{ if not $alt }}aria-hidden="true"{{ end }}
+         loading="{{ $loading }}"
+         {{ if eq $loading "eager" }}fetchpriority="high"{{ else }}decoding="async"{{ end }}
+         class="{{ $class }}">
+  </picture>
+{{- else }}
+  {{- warnf "logo.html: assets/%s not found" $file }}
+{{- end }}

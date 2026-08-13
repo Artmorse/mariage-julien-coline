@@ -5,10 +5,19 @@
   <section class="mx-auto max-w-3xl px-6 pt-10 pb-4 sm:pt-16">
     <p class="eyebrow soften text-center">{{ $p.weekendLong }}</p>
 
-    <h1 class="rise delay-1 mt-8 text-center font-display text-primary">
-      <span class="block text-[3.25rem] leading-[0.95] sm:text-8xl">{{ $p.brideFirstName }}</span>
-      <span class="my-3 block text-3xl italic text-accent sm:my-4 sm:text-4xl">&amp;</span>
-      <span class="block text-[3.25rem] leading-[0.95] sm:text-8xl">{{ $p.groomFirstName }}</span>
+    {{- /* The mark already sets the two first names, so it stands in for the
+           wordmark rather than sitting next to a heading that repeats it. The
+           alt text is what gives the h1 its accessible name.
+
+           Capped at 300 px: the source is 616 px, so the 2x variant stays
+           inside its native resolution instead of being upscaled soft. */}}
+    <h1 class="rise delay-1 mt-8">
+      {{ partial "logo.html" (dict
+          "width" 300
+          "alt" (printf "%s & %s" $p.brideFirstName $p.groomFirstName)
+          "loading" "eager"
+          "class" "mx-auto h-auto w-[248px] sm:w-[300px]"
+      ) }}
     </h1>
 
     {{- with $p.images.couple }}

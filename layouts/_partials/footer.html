@@ -23,12 +23,12 @@
   {{- end }}
 
   <div class="mx-auto max-w-3xl px-6 pb-14 {{ if not $next }}pt-8{{ end }}">
-    <div class="rule mb-6 text-accent-soft" aria-hidden="true">
-      <span class="font-display text-sm italic text-accent">
-        {{ substr site.Params.brideFirstName 0 1 }}&thinsp;&amp;&thinsp;{{ substr site.Params.groomFirstName 0 1 }}
-      </span>
-    </div>
-    <p class="text-center text-[0.6875rem] tracking-[0.14em] text-muted/70 uppercase">
+    {{- /* The mark signs off the page. It is decorative: the names are in the
+           header and the date is on the line just below, so announcing it
+           again would only repeat them. */}}
+    {{ partial "logo.html" (dict "width" 104 "class" "mx-auto h-auto w-[104px]") }}
+
+    <p class="mt-5 text-center text-[0.6875rem] tracking-[0.14em] text-muted/70 uppercase">
       {{ site.Params.weddingDateLong }} &middot; {{ site.Params.venue.shortName }}
     </p>
   </div>

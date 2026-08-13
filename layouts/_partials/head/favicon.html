@@ -1,3 +1,11 @@
-{{- /* Temporary monogram, to be replaced by the final favicon. */ -}}
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/favicon.svg">
+{{- /*
+  Icons cut from the monogram at the centre of the logo. The full mark is not
+  usable here: at icon sizes the ring of first names and the laurels collapse
+  into noise, so only the C and the J survive the crop.
+
+  The tab icon is transparent; the iOS one is not, because iOS composites a
+  transparent touch icon onto black before applying its own rounded mask.
+*/ -}}
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
