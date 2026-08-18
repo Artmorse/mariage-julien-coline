@@ -9,7 +9,6 @@ linkPending: "Playlist bientôt ouverte"
 weight: 50
 ---
 
-Nous n'avons pas envie de choisir seuls la musique de notre mariage.
+Nous voulons retrouver un peu de chacun de vous sur la piste… alors, à vous de jouer !
 
-Ajoutez les morceaux qui vous ressemblent, ceux qui vous rappellent un souvenir
-avec nous, ou simplement ceux qui vous font danser.
+Ajoutez les morceaux qui vous ressemblent, qui vous rappellent un souvenir avec nous, ou simplement ceux qui vous donnent envie de danser.
