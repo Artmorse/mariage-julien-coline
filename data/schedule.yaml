@@ -5,35 +5,26 @@
 #
 # tentative: true displays a "to be confirmed" note next to the day.
 
-- day: "Vendredi"
-  date: "2027-08-06"
-  dateLabel: "6 août"
-  tentative: true
-  events:
-    - time: "18h00"
-      title: "Accueil des invités"
-      description: "Arrivée à la maison, installation, premiers verres dans le jardin."
-    - time: "20h00"
-      title: "Dîner simple"
-      description: "Un repas sans façon, pour ceux qui sont déjà là."
-
 - day: "Samedi"
   date: "2027-08-07"
   dateLabel: "7 août"
   highlight: true
   events:
+    - time: "14h00"
+      title: "Accueil"
+      description: "Le temps de se retrouver et de boire un premier verre."
     - time: "15h00"
       title: "Cérémonie"
       description: "Le moment que nous attendions, en plein air si le ciel le veut bien."
     - time: "16h30"
-      title: "Cocktail"
-      description: "Bulles, bouchées et photos de famille."
+      title: "Goûter et cocktail"
+      description: "Bulles, cookies et photos."
     - time: "19h30"
-      title: "Repas"
-      description: "À table, tous ensemble."
+      title: "Baraque à frites et mini-jeux"
+      description: "Parce que les plans de table ne nous ressemblent pas vraiment, et qu’on a le Nord en perfusion."
     - time: "22h30"
       title: "Soirée"
-      description: "La piste est à vous, jusqu'au bout de la nuit."
+      description: "La piste est à vous, jusqu’au bout de la nuit."
 
 - day: "Dimanche"
   date: "2027-08-08"
@@ -42,7 +33,7 @@
   events:
     - time: "11h00"
       title: "Brunch"
-      description: "Café, viennoiseries et récits de la veille."
-    - time: "14h00"
+      description: "Café, viennoiseries, Doliprane et récits de la veille."
+    - time: "15h00"
       title: "Départs"
-      description: "On se dit au revoir, doucement."
+      description: "On se dit au revoir, tout doucement."
