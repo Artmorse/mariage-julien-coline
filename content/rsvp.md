@@ -1,7 +1,7 @@
 ---
 title: "RSVP"
 eyebrow: "Dites-nous si vous venez"
-lead: "Pour que nous puissions tout organiser sereinement, merci de nous répondre avant le printemps 2027."
+lead: "Pour que nous puissions tout organiser sereinement, merci de nous répondre avant avril 2027."
 linkKey: "rsvp"
 linkLabel: "Répondre au formulaire"
 linkNote: "Une réponse par foyer suffit. Pensez à préciser les enfants et les éventuelles allergies alimentaires."
