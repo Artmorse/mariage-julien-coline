@@ -9,7 +9,6 @@ linkPending: "Album bientôt disponible"
 weight: 60
 ---
 
-Vous serez nos meilleurs photographes.
+Parce qu'on sait que vous serez nos meilleurs photographes ! 
 
-Déposez vos clichés dans l'album partagé, du plus soigné au plus flou : ce sont
-souvent les seconds que l'on préfère revoir des années plus tard.
+Déposez vos clichés dans l'album partagé, du plus soigné au plus flou, mais si possible sans trop de doublons.
