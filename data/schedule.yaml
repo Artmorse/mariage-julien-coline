@@ -10,6 +10,9 @@
   dateLabel: "7 août"
   highlight: true
   events:
+    - time: "13h00"
+      title: "Accueil à l’internat"
+      description: "Pour ceux qui dorment sur place : le temps de faire son lit et de poser ses affaires."
     - time: "14h00"
       title: "Accueil"
       description: "Le temps de se retrouver et de boire un premier verre."
