@@ -104,7 +104,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   # ---------------------------------------------------------------------------
   [params.links]
     rsvp = ''       # Google Forms — TODO: form still to be created
-    playlist = ''   # Collaborative Spotify playlist — TODO
+    playlist = 'https://open.spotify.com/playlist/6MMaJ8yCI20xq3IxTEYEPB'
     photos = ''     # Google Photos album — TODO
 
   # ---------------------------------------------------------------------------
