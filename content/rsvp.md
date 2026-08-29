@@ -14,3 +14,6 @@ viendront dès le vendredi, d'autres seulement le samedi.
 
 Le formulaire prend deux minutes. Si vous hésitez encore, répondez quand même :
 vous pourrez toujours nous prévenir d'un changement.
+
+Pour toutes les questions liées au mariage, écrivez-nous à
+[mereauversmessen@gmail.com](mailto:mereauversmessen@gmail.com).
