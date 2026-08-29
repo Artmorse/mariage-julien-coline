@@ -120,5 +120,5 @@ authentication is listed among the possible next steps in the PRD.
 - create the RSVP form and fill in its URL
 - create the collaborative Spotify playlist and the Google Photos album
 - confirm the Friday and Sunday timings
-- complete the Lieu page: parking, accommodation, Wi-Fi, contacts
+- complete the Lieu page: parking, Wi-Fi, contacts
 - final visual identity, monogram and favicon
