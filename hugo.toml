@@ -78,7 +78,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   civilDate = '2026-03-28'
   weddingDate = '2027-08-07'
   weddingDateLong = '7 août 2027'
-  weekendLong = 'Du vendredi 6 au dimanche 8 août 2027'
+  weekendLong = 'Le samedi 7 août 2027'
 
   # ---------------------------------------------------------------------------
   # Venue
