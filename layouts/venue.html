@@ -40,11 +40,10 @@
     <section class="rise mt-20">
       <h2 class="eyebrow eyebrow--muted">Informations pratiques</h2>
       <p class="mt-4 max-w-md text-[0.9375rem] leading-relaxed text-muted">
-        Nous compléterons cette page au fil des mois avec le stationnement, les
-        hébergements à proximité, l'accès Wi-Fi et les contacts utiles.
+        Nous compléterons cette page au fil des mois.
       </p>
       <ul class="mt-6 max-w-md">
-        {{- range slice "Stationnement" "Hébergements à proximité" "Accès Wi-Fi" "Contacts utiles" }}
+        {{- range slice "Stationnement" "Internat" "Contacts utiles" }}
           <li class="flex items-baseline justify-between gap-4 border-b border-line/40 py-3.5">
             <span class="text-[0.9375rem]">{{ . }}</span>
             <span class="shrink-0 text-[0.625rem] tracking-[0.16em] text-muted/70 uppercase">À venir</span>
