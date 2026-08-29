@@ -47,17 +47,21 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   pageRef = '/venue'
   weight = 30
 [[menus.main]]
+  name = 'Dress code'
+  pageRef = '/dress-code'
+  weight = 40
+[[menus.main]]
   name = 'RSVP'
   pageRef = '/rsvp'
-  weight = 40
+  weight = 50
 [[menus.main]]
   name = 'Playlist'
   pageRef = '/playlist'
-  weight = 50
+  weight = 60
 [[menus.main]]
   name = 'Photos'
   pageRef = '/photos'
-  weight = 60
+  weight = 70
 
 [minify]
   disableXML = true

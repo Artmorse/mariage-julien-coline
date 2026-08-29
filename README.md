@@ -81,7 +81,7 @@ data/schedule.yaml      weekend timeline
 layouts/                Hugo templates
   baseof.html           shared skeleton
   home.html             home page
-  page.html             generic template (RSVP, Playlist, Photos)
+  page.html             generic template (Dress code, RSVP, Playlist, Photos)
   schedule.html         Programme page
   venue.html            Lieu page
   _partials/            header, footer, photograph, external button

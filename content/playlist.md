@@ -6,7 +6,7 @@ linkKey: "playlist"
 linkLabel: "Ouvrir la playlist Spotify"
 linkNote: "Ajoutez les titres qui vous feront venir sur la piste — les tubes assumés sont les bienvenus."
 linkPending: "Playlist bientôt ouverte"
-weight: 50
+weight: 60
 ---
 
 Nous voulons retrouver un peu de chacun de vous sur la piste… alors, à vous de jouer !

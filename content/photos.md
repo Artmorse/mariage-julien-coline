@@ -6,7 +6,7 @@ linkKey: "photos"
 linkLabel: "Ouvrir l'album Google Photos"
 linkNote: "L'album sera ouvert quelques jours avant le mariage, puis restera accessible ensuite."
 linkPending: "Album bientôt disponible"
-weight: 60
+weight: 70
 ---
 
 Parce qu'on sait que vous serez nos meilleurs photographes ! 

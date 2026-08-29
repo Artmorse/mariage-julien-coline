@@ -6,7 +6,7 @@ linkKey: "rsvp"
 linkLabel: "Répondre au formulaire"
 linkNote: "Une réponse par foyer suffit. Pensez à préciser les enfants et les éventuelles allergies alimentaires."
 linkPending: "Formulaire bientôt disponible"
-weight: 40
+weight: 50
 ---
 
 Nous avons besoin de savoir qui sera là, et quand : certains d'entre vous
