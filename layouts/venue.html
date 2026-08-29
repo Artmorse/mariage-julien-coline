@@ -48,6 +48,14 @@
 
       <dl class="mt-8 grid gap-8 sm:grid-cols-2 sm:gap-6">
         <div>
+          <dt class="eyebrow">L'accès</dt>
+          <dd class="mt-3 font-display text-2xl text-primary">À 10 minutes à pied</dd>
+          <p class="mt-2 text-sm text-muted">
+            L'internat se trouve à moins de 10 minutes à pied de l'école, et
+            dispose de son propre parking devant l'entrée.
+          </p>
+        </div>
+        <div>
           <dt class="eyebrow">Les chambres</dt>
           <dd class="mt-3 font-display text-2xl text-primary">Des chambres de 4</dd>
           <p class="mt-2 text-sm text-muted">
@@ -55,6 +63,14 @@
             nous nous occuperons de la répartition. Une chambre est adaptée aux
             personnes à mobilité réduite : signalez-le nous et nous vous la
             réservons.
+          </p>
+        </div>
+        <div>
+          <dt class="eyebrow">Les clés</dt>
+          <dd class="mt-3 font-display text-2xl text-primary">Remises sur place</dd>
+          <p class="mt-2 text-sm text-muted">
+            Le jour J, une ou plusieurs personnes seront responsables des clés :
+            adressez-vous à elles pour récupérer celle de votre chambre.
           </p>
         </div>
         <div>
@@ -66,23 +82,6 @@
           </p>
         </div>
       </dl>
-    </section>
-
-    {{- /* Practical information still to come: announced without promising a
-           date, so guests know where to look later on. */}}
-    <section class="rise mt-20">
-      <h2 class="eyebrow eyebrow--muted">Informations pratiques</h2>
-      <p class="mt-4 max-w-md text-[0.9375rem] leading-relaxed text-muted">
-        Nous compléterons cette page au fil des mois.
-      </p>
-      <ul class="mt-6 max-w-md">
-        {{- range slice "Stationnement" "Contacts utiles" }}
-          <li class="flex items-baseline justify-between gap-4 border-b border-line/40 py-3.5">
-            <span class="text-[0.9375rem]">{{ . }}</span>
-            <span class="shrink-0 text-[0.625rem] tracking-[0.16em] text-muted/70 uppercase">À venir</span>
-          </li>
-        {{- end }}
-      </ul>
     </section>
   </article>
 {{ end }}
