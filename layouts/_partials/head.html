@@ -34,3 +34,10 @@
 {{- with (templates.Defer (dict "key" "global")) }}
   {{- partial "head/css.html" . }}
 {{- end }}
+
+{{- /* The map stylesheet, only on the page that has a map, and after the
+       Tailwind build: it needs the identity variables to be declared, and its
+       rules have to come last to win against Leaflet's own. */}}
+{{- if partial "func/venue-map.html" . }}
+  {{- partial "head/map-css.html" . }}
+{{- end }}

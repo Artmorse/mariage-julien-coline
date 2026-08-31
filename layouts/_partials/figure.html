@@ -25,15 +25,19 @@
          AutoOrient first, portrait shots are displayed lying down. */}}
   {{- $base := images.Filter images.AutoOrient . }}
 
+  {{- /* Nothing is ever enlarged: a source narrower than the working width is
+         used at its own size, so a small photograph stays sharp instead of
+         being blown up soft. */}}
+  {{- $w := math.Min 1600 $base.Width | int }}
+
   {{- /* Optional crop: the "smart" mode keeps the most meaningful area of the
          photograph. */}}
   {{- if $ratio }}
-    {{- $w := 1600 }}
     {{- $parts := split $ratio "x" }}
     {{- $h := math.Round (mul (div (float $w) (float (index $parts 0))) (float (index $parts 1))) }}
     {{- $base = $base.Fill (printf "%dx%.0f smart" $w $h) }}
   {{- else }}
-    {{- $base = $base.Resize "1600x" }}
+    {{- $base = $base.Resize (printf "%dx" $w) }}
   {{- end }}
 
   {{- $widths := slice 480 720 1080 1600 }}
@@ -48,7 +52,7 @@
     {{- end }}
   {{- end }}
 
-  {{- $fallback := $base.Resize "1080x jpg q80" }}
+  {{- $fallback := $base.Resize (printf "%dx jpg q80" (math.Min 1080 $base.Width | int)) }}
 
   <picture>
     <source type="image/avif" srcset="{{ delimit $avifs ", " }}" sizes="{{ $sizes }}">

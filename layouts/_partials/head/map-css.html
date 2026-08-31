@@ -1,0 +1,21 @@
+{{- /*
+  Stylesheet of the map: Leaflet's own CSS, then the overrides that fold it into
+  the identity of the site. Concatenated into one file, and kept out of the
+  Tailwind build on purpose — see the header of assets/css/map.css.
+
+  Loaded after the Tailwind build so that the variables of the identity block
+  are already declared, and only on the page that actually has a map.
+*/ -}}
+{{- $sheets := slice
+    (resources.Get "vendor/leaflet/leaflet.css")
+    (resources.Get "css/map.css")
+}}
+{{- with $sheets | resources.Concat "css/map.bundle.css" }}
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}

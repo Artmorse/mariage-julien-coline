@@ -1,0 +1,99 @@
+{{- /*
+  The map on the "Lieu" page.
+
+  Everything comes from [params.venue.map] in hugo.toml and is handed to
+  assets/js/map.js through data attributes: no coordinate, no tile URL and no
+  label is written in a template or in the script.
+
+  The container starts hidden and is revealed by the script. A browser without
+  JavaScript therefore never shows an empty frame: it gets the numbered legend,
+  which is plain text, links included, and says everything the pins say.
+
+  Renders nothing when the map is disabled or not configured.
+*/ -}}
+{{- with partial "func/venue-map.html" . }}
+  {{- /* Each point is prepared twice: `$points` drives the legend, `$pins` is
+         what the script needs to draw a numbered marker. The link belongs to
+         the legend alone — a pin on the map is a number, not a target — and is
+         resolved here rather than in the script: `url` on a marker wins,
+         otherwise it comes from `markerLink` with the coordinates substituted
+         in. */}}
+  {{- $template := .markerLink }}
+  {{- $points := slice }}
+  {{- $pins := slice }}
+  {{- range (default slice .markers) }}
+    {{- $url := .url }}
+    {{- if and (not $url) $template }}
+      {{- $url = replace $template "{lat}" (printf "%v" .lat) }}
+      {{- $url = replace $url "{lon}" (printf "%v" .lon) }}
+    {{- end }}
+    {{- $points = $points | append (dict
+        "label" .label
+        "note" .note
+        "url" $url
+    ) }}
+    {{- $pins = $pins | append (dict
+        "lat" .lat
+        "lon" .lon
+        "label" .label
+    ) }}
+  {{- end }}
+
+  {{- /* Same rhythm as the sections around it: the map follows the address it
+         draws, and the dormitory follows the map. */}}
+  <section class="rise mt-16">
+    {{- with .heading }}
+      <h2 class="eyebrow eyebrow--muted">{{ . }}</h2>
+    {{- end }}
+
+    {{- /* tileFilter travels as a data attribute rather than an inline style:
+           Go's template escaper does not let a custom property through a style
+           attribute, and the script sets the variable anyway. */}}
+    <div id="venue-map"
+         class="map mt-4"
+         hidden
+         data-tile-filter="{{ .tileFilter }}"
+         aria-label="Carte des lieux du mariage, à {{ site.Params.venue.shortName }}"
+         data-lat="{{ .lat }}"
+         data-lon="{{ .lon }}"
+         data-zoom="{{ default 15 .zoom }}"
+         data-min-zoom="{{ default 11 .minZoom }}"
+         data-max-zoom="{{ default 18 .maxZoom }}"
+         data-tiles="{{ .tiles }}"
+         data-subdomains="{{ default "abc" .subdomains }}"
+         data-attribution="{{ .attribution }}"
+         data-markers="{{ $pins | jsonify }}"></div>
+
+    {{- /* The legend. It carries the numbers of the pins, and it is what makes
+           the map readable at a glance — and readable at all when the tiles
+           never load, since the links live here too. */}}
+    {{- with $points }}
+      <ol class="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8">
+        {{- range $index, $point := . }}
+          <li class="flex gap-4">
+            <span class="map-pin mt-0.5 shrink-0" aria-hidden="true">{{ add $index 1 }}</span>
+            <div>
+              {{- $label := $point.label }}
+              {{- with $point.url }}
+                <a href="{{ . }}"
+                   class="map-link font-display text-xl text-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {{ $label }}
+                  <svg class="mb-1 inline h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                    <path d="M3 9L9 3M9 3H4.5M9 3v4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {{- else }}
+                <p class="font-display text-xl text-primary">{{ $label }}</p>
+              {{- end }}
+              {{- with $point.note }}
+                <p class="mt-1 text-sm text-muted">{{ . | markdownify }}</p>
+              {{- end }}
+            </div>
+          </li>
+        {{- end }}
+      </ol>
+    {{- end }}
+  </section>
+{{- end }}

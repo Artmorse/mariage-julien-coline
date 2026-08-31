@@ -4,23 +4,33 @@
   <article class="mx-auto max-w-3xl px-6">
     {{ partial "page-header.html" . }}
 
-    {{- with site.Params.images.family }}
-      <figure class="rise delay-2 mb-14">
-        {{ partial "figure.html" (dict
-            "path" .
-            "alt" "La famille réunie le jour du mariage civil"
-            "ratio" "3x2"
-            "class" "w-full"
-        ) }}
-      </figure>
-    {{- end }}
+    {{- /* The place in words and in one photograph, side by side: the text says
+           what the maison familiale is, the façade shows it. They collapse to a single
+           column on a phone, text first. The prose keeps its own measure from
+           .prose-page but drops the 34rem cap, which is wider than the column
+           it now sits in. */}}
+    <div class="rise delay-2 grid items-start gap-8 sm:grid-cols-5 sm:gap-10">
+      {{- with .Content }}
+        <div class="prose-page sm:col-span-3 [&>p]:max-w-none">{{ . }}</div>
+      {{- end }}
 
-    {{- with .Content }}
-      <div class="rise delay-3 prose-page">{{ . }}</div>
-    {{- end }}
+      {{- with site.Params.images.venue }}
+        <figure class="sm:col-span-2">
+          {{ partial "figure.html" (dict
+              "path" .
+              "alt" "La façade en brique de la maison familiale, une longue bâtisse à deux étages avec sa porte verte, sa pelouse et son allée"
+              "sizes" "(min-width: 640px) 300px, 100vw"
+              "class" "w-full"
+          ) }}
+        </figure>
+      {{- end }}
+    </div>
 
-    {{- /* Address: selectable and copyable in a single gesture. */}}
-    <section class="rise mt-16">
+    {{- /* Address: selectable and copyable in a single gesture. Centred — it sits
+           between two full-width blocks, and the button under it reads as the
+           one action of the page. The inline-flex button follows the
+           text-align, so nothing else is needed here. */}}
+    <section class="rise mt-16 text-center">
       <h2 class="eyebrow eyebrow--muted">Adresse</h2>
       <address class="mt-4 font-display text-2xl leading-snug text-primary not-italic sm:text-[1.75rem]">
         {{ $v.name }}<br>
@@ -31,9 +41,14 @@
       {{ partial "link-button.html" (dict
           "url" $v.mapsUrl
           "label" "Ouvrir dans Google Maps"
-          "note" "L'entrée se fait par la cours, à l'arrière de l'école, côté parking."
+          "note" "Pour l'itinéraire depuis chez vous. Les repères sur place sont sur la carte juste en dessous."
       ) }}
     </section>
+
+    {{- /* The map, right under the address it draws: it is the one image that
+           answers the question the page exists for. Configured entirely in
+           [params.venue.map] in hugo.toml. */}}
+    {{ partial "map.html" . }}
 
     {{- /* The dormitory: what guests need to know before they pack. A definition
            list rather than prose, so it can be scanned one-handed on a phone,
@@ -43,15 +58,16 @@
     <section class="rise mt-20">
       <h2 class="font-display text-3xl text-primary sm:text-4xl">L'internat</h2>
       <p class="mt-4 max-w-md text-[0.9375rem] leading-relaxed text-muted">
-        Vous dormez sur place le samedi soir, dans l'internat de l'école.
+        Vous dormez sur place le samedi soir, dans l'internat de la maison
+        familiale.
       </p>
 
       <dl class="mt-8 grid gap-8 sm:grid-cols-2 sm:gap-6">
         <div>
           <dt class="eyebrow">L'accès</dt>
-          <dd class="mt-3 font-display text-2xl text-primary">À 10 minutes à pied</dd>
+          <dd class="mt-3 font-display text-2xl text-primary">À deux pas</dd>
           <p class="mt-2 text-sm text-muted">
-            L'internat se trouve à moins de 10 minutes à pied de l'école, et
+            L'internat est à une minute à pied de la maison familiale, et
             dispose de son propre parking devant l'entrée.
           </p>
         </div>

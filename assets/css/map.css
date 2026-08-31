@@ -1,0 +1,178 @@
+/* ===========================================================================
+   The map on the "Lieu" page.
+
+   Shipped only on that page, bundled behind Leaflet's own stylesheet, and
+   deliberately kept out of the Tailwind build: Leaflet ships unlayered CSS,
+   which in the cascade always wins against anything Tailwind emits inside
+   @layer. Overriding it from main.css would silently not work.
+
+   No hexadecimal value here either — every colour is a variable from the
+   identity block of main.css.
+   =========================================================================== */
+
+.map {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-surface);
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+@media (min-width: 640px) {
+  .map {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Leaflet gives the container a tabindex: the focus ring is the one of the
+   rest of the site, not the browser default. */
+.map:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* The free tile styles are all busier and cooler than this site. The filter is
+   what makes the map read as a part of the page rather than as an embedded
+   widget: it flattens the tiles to a warm monochrome, close to the cream.
+
+   The value comes from `tileFilter` in hugo.toml — the script sets the
+   variable — so the look can be dialled in without touching this file. An empty
+   value leaves the tiles exactly as the provider drew them. */
+.leaflet-tile-pane {
+  filter: var(--map-tile-filter, none);
+}
+
+/* ---------------------------------------------------------------------------
+   Pins — also used by the numbered legend under the map, so that a number in
+   the list and a number on the map are visibly the same object.
+   --------------------------------------------------------------------------- */
+
+.map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 9999px;
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* On the map only: a cream ring so the pin stays legible over a dark roof or a
+   road, and a shadow so it floats above the tiles. */
+.leaflet-marker-icon .map-pin {
+  width: 1.75rem;
+  height: 1.75rem;
+  box-shadow:
+    0 0 0 2px var(--color-background),
+    0 2px 6px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  transition: background-color 0.3s ease;
+}
+
+/* A pin gives up its name when touched, so it has to look touchable. */
+.leaflet-marker-icon:hover .map-pin {
+  background-color: var(--color-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   The name of a place, revealed by its pin.
+   --------------------------------------------------------------------------- */
+
+.leaflet-tooltip {
+  padding: 0.1875rem 0.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  background-color: var(--color-background);
+  box-shadow: none;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* Leaflet points the tooltip at its pin with a CSS triangle, which cannot carry
+   the hairline border the box has: the beak would come out white, whatever the
+   rest is. A plain label sitting just above the pin reads better. */
+.leaflet-tooltip::before {
+  display: none;
+}
+
+/* Same link treatment as the body copy of the site: a hairline underline that
+   warms up on hover, never a blue link. */
+.map-link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.map-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Leaflet chrome — reduced to hairlines and small capitals.
+   --------------------------------------------------------------------------- */
+
+.leaflet-container {
+  background-color: var(--color-surface);
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+.leaflet-bar {
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.leaflet-bar a,
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 0;
+  border-bottom-color: var(--color-line);
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-weight: 300;
+}
+
+.leaflet-bar a:hover {
+  background-color: var(--color-surface);
+}
+
+/* Leaflet paints a colour flag next to its own credit. The credit stays, the
+   flag goes: it is the one saturated pixel on a monochrome map. */
+.leaflet-attribution-flag {
+  display: none !important;
+}
+
+/* The tiles are paid for with this line: it stays discreet, never hidden. */
+.leaflet-control-attribution {
+  padding: 0 0.5rem;
+  background-color: color-mix(in srgb, var(--color-background) 85%, transparent);
+  color: var(--color-muted);
+  font-size: 0.625rem;
+  line-height: 1.6;
+}
+
+.leaflet-control-attribution a {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 2px;
+}
+
+/* Reduced motion is handled in map.js, not here, and deliberately so: Leaflet
+   commits a new zoom level only when the transition it started fires
+   `transitionend`. Killing that transition in CSS — as the global rule in
+   main.css does for everything else — leaves the map stuck at the previous
+   zoom for good. The script turns Leaflet's own animation flags off instead. */

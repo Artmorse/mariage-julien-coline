@@ -1,0 +1,32 @@
+{{- /*
+  Scripts of the map, only on the page that has one.
+
+  Leaflet is vendored in assets/ rather than fetched from a CDN: the site
+  already self-hosts its fonts to avoid any request to a third party, and the
+  same applies here. The tiles remain the one external call.
+
+  Two tags rather than a bundle: Leaflet's dist file is a UMD wrapper, and
+  keeping it separate means `L` is a plain global. `defer` guarantees the order.
+*/ -}}
+{{- with resources.Get "vendor/leaflet/leaflet.js" }}
+  {{- if hugo.IsDevelopment }}
+    <script src="{{ .RelPermalink }}" defer></script>
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with resources.Get "js/map.js" }}
+  {{- $opts := dict "minify" (not hugo.IsDevelopment) "target" "es2018" }}
+  {{- with . | js.Build $opts }}
+    {{- if hugo.IsDevelopment }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- else }}
+      {{- with . | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}

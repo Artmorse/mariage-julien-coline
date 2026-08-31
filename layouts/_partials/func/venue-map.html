@@ -1,0 +1,20 @@
+{{- /*
+  Returns the map configuration for the current page, or nil when there is
+  nothing to render.
+
+  A single gate, called from three places — the head, the scripts and the map
+  partial itself — so that the stylesheet and the script are never sent to a
+  page without a map, and so that `enable = false` in hugo.toml is enough to
+  remove the whole feature from the build.
+*/ -}}
+{{- $result := "" }}
+
+{{- if eq .Layout "venue" }}
+  {{- with site.Params.venue.map }}
+    {{- if and .enable .lat .lon .tiles }}
+      {{- $result = . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- return $result }}

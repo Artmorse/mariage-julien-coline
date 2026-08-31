@@ -95,6 +95,77 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
     city = 'Berlencourt-le-Cauroy'
     mapsUrl = 'https://maps.app.goo.gl/6Cfe8bpqcX1J4paj7'
 
+    # -------------------------------------------------------------------------
+    # The map on the "Lieu" page.
+    #
+    # OpenStreetMap data, drawn by Leaflet — vendored in assets/, no API key, no
+    # quota, no account. This block is the only place the map is described: no
+    # coordinate is written in a template or in a script.
+    #
+    # `enable = false` removes the map, its stylesheet and its script from the
+    # build. The page keeps its address and its "open in Maps" button.
+    #
+    # `tiles` takes any XYZ tile URL, and `attribution` is what those tiles are
+    # paid with: never empty it. Sources checked to work without any key or
+    # account, the calmest first:
+    #
+    #   OpenStreetMap ... https://tile.openstreetmap.org/{z}/{x}/{y}.png
+    #                     '© OpenStreetMap'          — subdomains = ''
+    #   Esri Light Gray . https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}
+    #                     '© Esri, © OpenStreetMap'  — note the {z}/{y}/{x} order
+    #   CyclOSM ......... https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png
+    #                     '© OpenStreetMap, CyclOSM' — subdomains = 'abc'
+    #
+    # CARTO Positron and Stadia/Stamen now answer with a watermarked "API key
+    # required" tile: both need an account, so neither is usable here.
+    [params.venue.map]
+      enable = true
+      heading = 'Sur la carte'
+      lat = 50.267473
+      lon = 2.431821
+      # `zoom` is the tightest framing that still reads — the three points below
+      # sit within two hundred metres, so it is also the cap used when the map
+      # frames them by itself. `maxZoom` is only how far a guest can zoom in.
+      zoom = 18
+      minZoom = 11
+      maxZoom = 19
+      tiles = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+      subdomains = ''
+      attribution = '© OpenStreetMap'
+
+      # Colour treatment of the tiles, as a CSS filter. Every free style is
+      # busier and cooler than this site; flattening them to a warm monochrome
+      # is what makes the map look drawn for the page. Empty = raw tiles.
+      tileFilter = 'grayscale(1) sepia(0.3) brightness(1.06) contrast(0.88)'
+
+      # Where a point of the legend leads. The pins on the map stay plain
+      # numbers. {lat} and {lon} are replaced per point; a `url` on a marker
+      # overrides it. Empty = no link, the labels stay plain text.
+      # For turn-by-turn navigation instead of a dropped pin:
+      #   'https://www.google.com/maps/dir/?api=1&destination={lat},{lon}'
+      markerLink = 'https://www.google.com/maps/search/?api=1&query={lat},{lon}'
+
+      # The numbered points. The order here is the order of the numbers, on the
+      # map and in the legend under it. `note` is optional and accepts Markdown.
+      # Adding one is enough: the map reframes itself around them all.
+      [[params.venue.map.markers]]
+        lat = 50.2672282
+        lon = 2.4325553
+        label = "La maison familiale"
+        note = "L'entrée se fait par la cour, à l'arrière, côté parking."
+
+      [[params.venue.map.markers]]
+        lat = 50.2679897
+        lon = 2.4328520
+        label = "Le parking"
+        note = "Le grand parking de la maison familiale : c'est là que tout le monde se gare, pour la journée comme pour la nuit."
+
+      [[params.venue.map.markers]]
+        lat = 50.2669556
+        lon = 2.4307891
+        label = "L'internat"
+        note = "C'est là que vous dormez le samedi soir. Il a son propre parking, devant l'entrée."
+
   # ---------------------------------------------------------------------------
   # External links
   #
@@ -112,5 +183,6 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   # ---------------------------------------------------------------------------
   [params.images]
     couple = 'images/couple-civil-wedding.jpg'
-    family = 'images/family-civil-wedding.jpg'
+    family = 'images/family-civil-wedding.jpg'   # Unused for now
+    venue = 'images/maison-familiale-facade.jpg'   # Beside the text on the "Lieu" page
     schedule = ''   # Schedule image — TODO: drop it into assets/images/

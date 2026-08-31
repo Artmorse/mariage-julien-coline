@@ -10,3 +10,7 @@
     {{- end }}
   {{- end }}
 {{- end }}
+
+{{- if partial "func/venue-map.html" . }}
+  {{- partial "map-scripts.html" . }}
+{{- end }}
