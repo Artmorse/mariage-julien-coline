@@ -139,10 +139,10 @@
   // in hugo.toml is then enough, with nothing to recompute by hand. On a narrow
   // screen this is also what pulls the zoom back so no pin falls outside.
   //
-  // The fit is capped at `zoom`, not at `maxZoom`: the pins here sit within a
-  // hundred metres of each other, and left alone Leaflet would zoom in until
-  // the village around them disappeared. `zoom` is the tightest framing that
-  // still reads; `maxZoom` stays what a guest can reach by hand.
+  // The fit is capped at `zoom`, not at `maxZoom`: the pins sit close enough
+  // together that, left alone, Leaflet would zoom in until the village around
+  // them disappeared. `zoom` is the tightest framing that still reads;
+  // `maxZoom` stays what a guest can reach by hand.
   if (points.length > 1) {
     var bounds = points.map(function (point) {
       return [point.lat, point.lon];

@@ -123,9 +123,10 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
       heading = 'Sur la carte'
       lat = 50.267473
       lon = 2.431821
-      # `zoom` is the tightest framing that still reads — the three points below
-      # sit within two hundred metres, so it is also the cap used when the map
-      # frames them by itself. `maxZoom` is only how far a guest can zoom in.
+      # `zoom` is the tightest framing that still reads, and the cap used when
+      # the map frames the points below by itself — they span some five hundred
+      # metres, so the fit settles well under it. `maxZoom` is only how far a
+      # guest can zoom in.
       zoom = 18
       minZoom = 11
       maxZoom = 19
@@ -151,20 +152,26 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
       [[params.venue.map.markers]]
         lat = 50.2672282
         lon = 2.4325553
-        label = "La maison familiale"
+        label = "L'école"
         note = "L'entrée se fait par la cour, à l'arrière, côté parking."
 
       [[params.venue.map.markers]]
         lat = 50.2679897
         lon = 2.4328520
-        label = "Le parking"
-        note = "Le grand parking de la maison familiale : c'est là que tout le monde se gare, pour la journée comme pour la nuit."
+        label = "Le parking de l'école"
+        note = "Le grand parking de l'école : c'est là que tout le monde se gare pour la journée."
 
       [[params.venue.map.markers]]
-        lat = 50.2669556
-        lon = 2.4307891
+        lat = 50.2662325
+        lon = 2.4263738
         label = "L'internat"
-        note = "C'est là que vous dormez le samedi soir. Il a son propre parking, devant l'entrée."
+        note = "C'est là que vous dormez le samedi soir."
+
+      [[params.venue.map.markers]]
+        lat = 50.2665218
+        lon = 2.4265563
+        label = "Le parking de l'internat"
+        note = "Juste devant l'entrée de l'internat : pour la nuit, garez-vous là plutôt qu'à l'école."
 
   # ---------------------------------------------------------------------------
   # External links
