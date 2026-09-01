@@ -88,7 +88,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   # Venue
   # ---------------------------------------------------------------------------
   [params.venue]
-    name = 'Maison Familiale de Berlencourt-Le-Cauroy'
+    name = 'École de Berlencourt-Le-Cauroy'
     shortName = 'Berlencourt-le-Cauroy'
     street = '161 Rue de Grand Rullecourt'
     postcode = '62810'
