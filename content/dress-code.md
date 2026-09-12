@@ -1,35 +1,31 @@
 ---
+
 title: "Dress code"
 eyebrow: "Tout de blanc vêtus"
-lead: "Une seule consigne : les invités en blanc, les mariés en couleurs."
+lead: "Pour prolonger l’histoire avec vous, nous rêvons d’une fête où vous serez en blanc et nous, en couleurs."
 weight: 40
----
+----------
 
-Le blanc, pour une fois, n'est pas réservé aux mariés : c'est vous qui le
-porterez. Blanc, ivoire, écru, crème, lin naturel — toutes les nuances sont
-bienvenues, personne ne viendra comparer la vôtre à celle du voisin.
+Nous nous sommes déjà dit *oui* en tout petit comité. Cette fois, c’est avec *vous* que nous nous marions ! Alors cette fois, le blanc est pour vous !
 
-Nous serons les deux seuls en couleurs. L'idée nous plaît beaucoup : sur les
-photos, vous serez tous ensemble, et nous au milieu.
+Blanc, ivoire, écru, crème, sable... Toutes les nuances sont les bienvenues. Et encore mieux, si vous avez déjà une tenue de mariage, nous serions ravis que vous la reportiez, même si elle comporte un peu de couleur.
+
+Ce dress code est avant tout une envie qui nous ferait très plaisir. Il n’est pas question de vous stresser, de comparer les nuances ni de vérifier les tenues : nous vous faisons confiance pour approprier le thème à votre manière, ce sera parfait dans tous les cas.
 
 ## Pour vous
 
-- du blanc, du crème, de l'ivoire ou de l'écru, uni de préférence
-- la coupe et le style sont libres : costume, robe, ensemble large, tailleur
-- un imprimé discret ou une broderie ton sur ton ne posent aucun problème
-- vos accessoires restent les vôtres : ceinture, chaussures, bijoux, chapeau —
-  en couleur si vous voulez, c'est la tenue qui compte
+Robe, costume, tailleur, ensemble décontracté ou tenue déjà portée pour votre propre mariage : choisissez surtout quelque chose dans lequel vous vous sentez bien.
+
+Le blanc peut se décliner en crème, ivoire, écru ou beige très clair. Si l'uni ne vous sied pas, les motifs, broderies, accessoires et quelques touches de couleur sont évidemment les bienvenus.
 
 ## Pour nous
 
-Nous porterons de la couleur, dans les tons chauds du terracotta et de l'ocre.
-Vous n'avez rien à accorder : jouez le blanc, nous nous occupons du reste.
+Nous serons multicolores, comme la décoration.
 
 ## En pratique
 
-Une grande partie du week-end se passera dehors, dans le jardin : prévoyez des
-chaussures qui supportent l'herbe et le gravier, et de quoi vous couvrir pour la
-soirée — les nuits d'août sont fraîches dans les Hauts-de-France.
+Une grande partie de la fête se déroulera dehors, dans le jardin, avec peut-être quelques jeux d’eau. Prévoyez donc des chaussures adaptées à l’herbe et au gravier, ainsi qu’une tenue de rechange si vous souhaitez profiter de la journée sans vous poser de questions.
 
-Et si vous hésitez sur une nuance ou sur une tenue, demandez-nous : c'est plus
-simple que de deviner.
+Pensez également à prendre de quoi vous couvrir pour la soirée : même en août, les nuits peuvent être fraîches dans les Hauts-de-France.
+
+Et si vous avez la moindre question, vous pouvez bien sûr nous contacter. Mais, pour le reste, nous vous faisons entièrement confiance.
