@@ -62,6 +62,10 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   name = 'Photos'
   pageRef = '/photos'
   weight = 70
+[[menus.main]]
+  name = 'Contact'
+  pageRef = '/contact'
+  weight = 80
 
 [minify]
   disableXML = true
@@ -174,6 +178,13 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
         note = "Juste devant l'entrée de l'internat : pour la nuit, garez-vous là plutôt qu'à l'école."
 
   # ---------------------------------------------------------------------------
+  # How guests reach us. The address is written here once and nowhere else:
+  # it is the only one given to the guests.
+  # ---------------------------------------------------------------------------
+  [params.contact]
+    email = 'mereauversmessen@gmail.com'
+
+  # ---------------------------------------------------------------------------
   # External links
   #
   # Leaving a value empty ('') simply hides the matching button: the page stays
@@ -184,6 +195,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
     rsvp = 'https://forms.gle/G3EL62DbcUVRBrSN8'       
     playlist = 'https://open.spotify.com/playlist/6MMaJ8yCI20xq3IxTEYEPB'
     photos = ''     # Google Photos album — TODO
+    whatsapp = 'https://chat.whatsapp.com/DNr4mEnaeJQFzXAbnC82Zo'
 
   # ---------------------------------------------------------------------------
   # Images (paths relative to assets/)

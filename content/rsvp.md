@@ -14,5 +14,5 @@ Nous avons besoin de savoir qui sera là et qui souhaite rester dormir. Nous avo
 Le formulaire prend deux minutes. Si vous hésitez encore, répondez quand même :
 vous pourrez toujours nous prévenir d'un changement.
 
-Pour toutes les questions liées au mariage, écrivez-nous à
-[mereauversmessen@gmail.com](mailto:mereauversmessen@gmail.com).
+Pour toutes les questions liées au mariage, [écrivez-nous](/contact/) : par mail
+ou sur la communauté WhatsApp, comme vous préférez.

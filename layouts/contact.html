@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <article class="mx-auto max-w-3xl px-6">
+    {{ partial "page-header.html" . }}
+
+    {{- /* The page carries no prose of its own: the two blocks below say what it
+           is for. It stays optional all the same, in case a word needs adding
+           later. */}}
+    {{- with .Content }}
+      <div class="rise delay-3 prose-page">{{ . }}</div>
+    {{- end }}
+
+    {{- /* The two ways of reaching us, each with its address in the display type
+           above the button: on a phone the line is what gets read out loud or
+           copied, the button is for the tap. Centred and in the same shape as
+           the address block on the "Lieu" page. */}}
+    <section class="rise {{ if .Content }}mt-16{{ else }}mt-4{{ end }} text-center">
+      <h2 class="eyebrow eyebrow--muted">Par mail</h2>
+      <p class="mt-4 font-display text-2xl leading-snug text-primary sm:text-[1.75rem]">
+        {{ site.Params.contact.email }}
+      </p>
+
+      {{ partial "link-button.html" (dict
+          "url" (printf "mailto:%s" site.Params.contact.email)
+          "label" "Nous écrire"
+          "note" "C'est la boîte que nous regardons tous les deux."
+      ) }}
+    </section>
+
+    <section class="rise mt-20 text-center">
+      <h2 class="eyebrow eyebrow--muted">Sur WhatsApp</h2>
+      <p class="mt-4 font-display text-2xl leading-snug text-primary sm:text-[1.75rem]">
+        La communauté du mariage
+      </p>
+
+      {{ partial "link-button.html" (dict
+          "url" site.Params.links.whatsapp
+          "label" "Rejoindre la communauté"
+          "note" "Les annonces, les covoiturages et le reste, au même endroit."
+          "pending" "Communauté bientôt ouverte"
+      ) }}
+    </section>
+  </article>
+{{ end }}

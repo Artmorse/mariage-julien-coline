@@ -23,7 +23,9 @@
 
     {{- /* Plain links on large screens. */}}
     <nav class="hidden sm:block" aria-label="Navigation principale">
-      <ul class="flex items-center gap-7">
+      {{- /* Eight links in a 48rem column: the row only breathes from md on, so
+             the gap tightens below it rather than letting the nav wrap. */}}
+      <ul class="flex items-center gap-4 md:gap-7">
         {{- range site.Menus.main }}
           {{- $active := $.IsMenuCurrent "main" . }}
           <li>
