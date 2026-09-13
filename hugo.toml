@@ -181,7 +181,7 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
   # Replace with the real URL as soon as it is available.
   # ---------------------------------------------------------------------------
   [params.links]
-    rsvp = ''       # Google Forms — TODO: form still to be created
+    rsvp = 'https://forms.gle/G3EL62DbcUVRBrSN8'       
     playlist = 'https://open.spotify.com/playlist/6MMaJ8yCI20xq3IxTEYEPB'
     photos = ''     # Google Photos album — TODO
 
