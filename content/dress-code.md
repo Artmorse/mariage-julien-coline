@@ -2,7 +2,7 @@
 
 title: "Dress code"
 eyebrow: "Tout de blanc vêtus"
-lead: "Parce qu'on adore les fêtes à thèmes"
+lead: "Parce qu'on adore les fêtes à thème"
 weight: 40
 ----------
 
