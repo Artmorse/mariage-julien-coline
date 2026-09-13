@@ -2,7 +2,7 @@
 
 title: "Dress code"
 eyebrow: "Tout de blanc vêtus"
-lead: ""
+lead: "Parce qu'on adore les fêtes à thèmes"
 weight: 40
 ----------
 
@@ -24,8 +24,8 @@ Nous serons multicolores, comme la décoration.
 
 ## En pratique
 
-Une grande partie de la fête se déroulera dehors, dans le jardin, avec peut-être quelques jeux d’eau. Prévoyez donc des chaussures adaptées à l’herbe et au gravier, ainsi qu’une tenue de rechange si vous souhaitez profiter de la journée sans vous poser de questions.
+Une grande partie de la fête se déroulera dehors, dans le jardin, avec peut-être quelques jeux d’eau. N'hésitez pas à prévoir des chaussures adaptées à l’herbe et au gravier, voir même une tenue de rechange. Promis on prendra des photos avant de sortir les pistolets à eau (mais sans doute après aussi).
 
 Pensez également à prendre de quoi vous couvrir pour la soirée : même en août, les nuits peuvent être fraîches dans les Hauts-de-France.
 
-Et si vous avez la moindre question, vous pouvez bien sûr nous contacter. Mais, pour le reste, nous vous faisons entièrement confiance.
+Et si vous avez la moindre question, vous pouvez bien sûr nous contacter. Mais rassurez-vous, nous vous faisons entièrement confiance.
