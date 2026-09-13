@@ -6,7 +6,7 @@ lead: "Parce qu'on adore les fêtes à thèmes"
 weight: 40
 ----------
 
-Nous nous sommes déjà dit *oui* en tout petit comité. Cette fois, c’est avec *vous* que nous nous marions ! Alors cette fois, le blanc est pour vous !
+Nous nous sommes déjà dit *oui* en tout petit comité. Cette fois, c’est avec *vous* que nous nous marions, donc cette fois, le blanc est pour vous !
 
 Blanc, ivoire, écru, crème, sable... Toutes les nuances sont les bienvenues. Et encore mieux, si vous avez déjà une tenue de mariage, nous serions ravis que vous la reportiez, même si elle comporte un peu de couleur.
 
