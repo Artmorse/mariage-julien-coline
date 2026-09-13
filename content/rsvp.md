@@ -9,8 +9,7 @@ linkPending: "Formulaire bientôt disponible"
 weight: 50
 ---
 
-Nous avons besoin de savoir qui sera là, et quand : certains d'entre vous
-viendront dès le vendredi, d'autres seulement le samedi.
+Nous avons besoin de savoir qui sera là, qui souhaite rester dormir. Nous avons vu large en termes de couchages, mais si besoin, on pourra rajouter un dortoir dans une des salles de cours pour les plus en formes.
 
 Le formulaire prend deux minutes. Si vous hésitez encore, répondez quand même :
 vous pourrez toujours nous prévenir d'un changement.
