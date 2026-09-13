@@ -2,7 +2,7 @@
 
 title: "Dress code"
 eyebrow: "Tout de blanc vêtus"
-lead: "Pour prolonger l’histoire avec vous, nous rêvons d’une fête où vous serez en blanc et nous, en couleurs."
+lead: ""
 weight: 40
 ----------
 
