@@ -20,7 +20,15 @@
 {{- /* Private site, guests only: no indexing, no archiving. */}}
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow, noarchive">
-<meta name="referrer" content="no-referrer">
+
+{{- /* Not `no-referrer`, tempting as it is on a private site: OpenStreetMap's
+       tile servers refuse a request that arrives without a `Referer` and answer
+       with a tile that reads "App is not following the tile usage policy", so
+       the map paints itself with refusals. This is the browsers' own default —
+       cross-origin it sends the bare origin, no path and no query, and nothing
+       at all when leaving HTTPS. What OpenStreetMap learns is the domain name,
+       which its server already reads in the TLS handshake. */}}
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta name="theme-color" content="#2f4034">
 <meta name="format-detection" content="telephone=no">
