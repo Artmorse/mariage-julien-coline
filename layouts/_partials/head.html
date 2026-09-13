@@ -49,3 +49,7 @@
 {{- if partial "func/venue-map.html" . }}
   {{- partial "head/map-css.html" . }}
 {{- end }}
+
+{{- /* Last, and deliberately outside the deferred block above: inside it, `.`
+       is no longer the page. */}}
+{{- partial "analytics.html" . }}

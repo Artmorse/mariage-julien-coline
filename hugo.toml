@@ -186,6 +186,32 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']
     photos = ''     # Google Photos album — TODO
 
   # ---------------------------------------------------------------------------
+  # Audience measurement — Umami Cloud
+  #
+  # Umami counts page views without a cookie and without any identifier that
+  # follows a guest from one site to another, which is why the site asks for no
+  # consent. This block is the only place the tracker is described: neither the
+  # identifier nor the URL is written into a template.
+  #
+  # `websiteId` empty ('') removes the script from the build, exactly like an
+  # empty link above. Paste the identifier Umami shows under
+  # Settings → Websites → Edit, and measurement starts on the next deployment.
+  #
+  # `enable = false` switches measurement off while keeping the identifier on
+  # file.
+  #
+  # The script is only ever served by the built site: `hugo server` sends
+  # nothing, so working on the site locally leaves the figures untouched.
+  #
+  # `src` is the tracker of the Umami instance. Umami Cloud serves it from
+  # cloud.umami.is; a self-hosted instance serves it from its own domain.
+  # ---------------------------------------------------------------------------
+  [params.analytics]
+    enable = true
+    websiteId = ''     # Umami website ID — TODO
+    src = 'https://cloud.umami.is/script.js'
+
+  # ---------------------------------------------------------------------------
   # Images (paths relative to assets/)
   # ---------------------------------------------------------------------------
   [params.images]

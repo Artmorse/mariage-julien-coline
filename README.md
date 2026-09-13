@@ -41,6 +41,21 @@ As long as a value is empty, the button on the matching page is replaced by a
 discreet waiting note ("Formulaire bientôt disponible"). No dead link is ever
 shown to the guests: pasting the URL is enough to activate the button.
 
+### Audience measurement — `hugo.toml`, `[params.analytics]` section
+
+```toml
+enable = true
+websiteId = ''   # Umami website ID
+```
+
+Umami Cloud counts page views. As long as `websiteId` is empty, no tracker is
+sent to the browser at all; pasting the identifier from Umami's
+Settings → Websites → Edit is enough to start measuring. `enable = false`
+switches measurement off while keeping the identifier on file.
+
+The tracker only ever ships with the deployed site: `hugo server` serves
+nothing, so working on the site locally leaves the figures untouched.
+
 ### Schedule — `data/schedule.yaml`
 
 Each day holds a list of events (time, title, description). `tentative: true`
@@ -74,7 +89,7 @@ To display the schedule image, drop it into `assets/images/` and fill in
 
 ```
 assets/css/main.css     visual identity and styles
-assets/js/main.js       mobile menu toggle (the site's only JavaScript)
+assets/js/main.js       mobile menu toggle (the only JavaScript written here)
 assets/images/          source photographs
 content/                page text
 data/schedule.yaml      weekend timeline
@@ -107,8 +122,14 @@ The custom domain is declared in `static/CNAME`. It must match `baseURL` in
 
 The site is not indexable: `robots.txt` disallows every robot and each page
 carries `noindex, nofollow, noarchive`. No sitemap and no RSS feed are
-generated. The fonts are self-hosted, so the site issues no request to any
-third-party service, and therefore no tracking.
+generated. The fonts are self-hosted, and so is every stylesheet and every
+script the project writes.
+
+Two third-party calls remain. The map tiles on the "Lieu" page are fetched from
+OpenStreetMap. And Umami Cloud counts page views: no cookie, no identifier that
+follows a guest from one site to another, nothing that would need a consent
+banner. Both can be switched off from `hugo.toml` alone —
+`[params.venue.map] enable` and `[params.analytics] enable`.
 
 Access nevertheless remains public to anyone who knows the URL. Lightweight
 authentication is listed among the possible next steps in the PRD.
@@ -118,6 +139,7 @@ authentication is listed among the possible next steps in the PRD.
 ## Still to do
 
 - create the RSVP form and fill in its URL
+- create the Umami Cloud website and paste its identifier
 - create the collaborative Spotify playlist and the Google Photos album
 - confirm the Friday and Sunday timings
 - complete the Lieu page: parking, Wi-Fi, contacts
